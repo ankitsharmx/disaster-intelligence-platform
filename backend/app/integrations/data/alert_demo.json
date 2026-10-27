@@ -1,0 +1,20 @@
+[
+  {
+    "identifier": "CAP-MH-2026-FLOOD-001",
+    "sender": "State Disaster Management Authority (SDMA) Maharashtra",
+    "sent_at": "2026-10-27T06:30:00Z",
+    "status": "Actual",
+    "msg_type": "Alert",
+    "scope": "Public",
+    "event": "Red Warning: Extremely Heavy Rainfall & Urban Flash Flooding",
+    "urgency": "Immediate",
+    "severity": "critical",
+    "certainty": "Observed",
+    "headline": "Red Alert: Severe Inundation in Mumbai Suburban and Thane low-lying sectors",
+    "description": "Rainfall exceeding 150mm recorded in 3 hours coinciding with a 4.5m high astronomical tide at 13:40 hrs. Severe waterlogging at Hindmata, Kurla, Milan Subway, and Thane Ghodbunder corridor.",
+    "instruction": "Citizens are strictly advised to remain indoors. Avoid driving into submerged underpasses. Fishermen advised not to venture into sea.",
+    "districts": ["Mumbai Suburban", "Thane"],
+    "valid_from": "2026-10-27T06:30:00Z",
+    "valid_to": "2026-10-28T06:30:00Z"
+  }
+]

@@ -1,0 +1,145 @@
+[
+  {
+    "name": "KEM Hospital",
+    "category": "hospital",
+    "district_id": 1,
+    "district_name": "Mumbai City",
+    "latitude": 18.9987,
+    "longitude": 72.8423,
+    "contact_number": "+91-22-2410-7000",
+    "capacity": 1800,
+    "details": {"type": "Super Specialty Tertiary Care", "icu_beds": 120, "emergency_ward": true}
+  },
+  {
+    "name": "BYL Nair Charitable Hospital",
+    "category": "hospital",
+    "district_id": 1,
+    "district_name": "Mumbai City",
+    "latitude": 18.9723,
+    "longitude": 72.8229,
+    "contact_number": "+91-22-2302-7000",
+    "capacity": 1300,
+    "details": {"type": "General & Trauma Hospital", "icu_beds": 80, "emergency_ward": true}
+  },
+  {
+    "name": "Colaba Police Station",
+    "category": "police",
+    "district_id": 1,
+    "district_name": "Mumbai City",
+    "latitude": 18.9150,
+    "longitude": 72.8280,
+    "contact_number": "+91-22-2285-6817",
+    "capacity": 50,
+    "details": {"patrol_vehicles": 8, "disaster_quick_response_team": true}
+  },
+  {
+    "name": "Fort Fire Brigade Headquarters",
+    "category": "fire_station",
+    "district_id": 1,
+    "district_name": "Mumbai City",
+    "latitude": 18.9380,
+    "longitude": 72.8350,
+    "contact_number": "+91-22-2262-0111",
+    "capacity": 40,
+    "details": {"engines": 6, "ladder_height_meters": 70, "boat_units": 2}
+  },
+  {
+    "name": "Nariman Point Community Relief Center",
+    "category": "shelter",
+    "district_id": 1,
+    "district_name": "Mumbai City",
+    "latitude": 18.9280,
+    "longitude": 72.8220,
+    "contact_number": "+91-22-2202-4411",
+    "capacity": 500,
+    "details": {"generator_backup": true, "food_supplies_days": 7, "water_storage_liters": 20000}
+  },
+  {
+    "name": "Cooper Hospital",
+    "category": "hospital",
+    "district_id": 2,
+    "district_name": "Mumbai Suburban",
+    "latitude": 19.1085,
+    "longitude": 72.8360,
+    "contact_number": "+91-22-2620-7254",
+    "capacity": 650,
+    "details": {"type": "General Municipal Hospital", "icu_beds": 45, "emergency_ward": true}
+  },
+  {
+    "name": "Andheri Fire Station",
+    "category": "fire_station",
+    "district_id": 2,
+    "district_name": "Mumbai Suburban",
+    "latitude": 19.1190,
+    "longitude": 72.8465,
+    "contact_number": "+91-22-2624-2222",
+    "capacity": 30,
+    "details": {"engines": 4, "water_tenders": 2}
+  },
+  {
+    "name": "Bandra Kurla Emergency Flood Shelter",
+    "category": "shelter",
+    "district_id": 2,
+    "district_name": "Mumbai Suburban",
+    "latitude": 19.0650,
+    "longitude": 72.8680,
+    "contact_number": "+91-22-2659-0000",
+    "capacity": 1200,
+    "details": {"high_elevation": true, "medical_post": true, "backup_power": true}
+  },
+  {
+    "name": "Kandivali Police Station",
+    "category": "police",
+    "district_id": 2,
+    "district_name": "Mumbai Suburban",
+    "latitude": 19.2050,
+    "longitude": 72.8490,
+    "contact_number": "+91-22-2805-0100",
+    "capacity": 60,
+    "details": {"patrol_vehicles": 10}
+  },
+  {
+    "name": "Thane Civil Hospital",
+    "category": "hospital",
+    "district_id": 3,
+    "district_name": "Thane",
+    "latitude": 19.1980,
+    "longitude": 72.9780,
+    "contact_number": "+91-22-2547-2581",
+    "capacity": 500,
+    "details": {"type": "District Headquarters Hospital", "icu_beds": 35}
+  },
+  {
+    "name": "Thane Municipal Disaster Shelter",
+    "category": "shelter",
+    "district_id": 3,
+    "district_name": "Thane",
+    "latitude": 19.2150,
+    "longitude": 73.0100,
+    "contact_number": "+91-22-2533-1212",
+    "capacity": 800,
+    "details": {"generator_backup": true, "kitchen_facility": true}
+  },
+  {
+    "name": "Sassoon General Hospital",
+    "category": "hospital",
+    "district_id": 4,
+    "district_name": "Pune",
+    "latitude": 18.5284,
+    "longitude": 73.8739,
+    "contact_number": "+91-20-2612-8000",
+    "capacity": 1296,
+    "details": {"type": "Apex Government Hospital & Trauma Center", "icu_beds": 100}
+  },
+  {
+    "name": "Pune Central Fire Brigade",
+    "category": "fire_station",
+    "district_id": 4,
+    "district_name": "Pune",
+    "latitude": 18.5020,
+    "longitude": 73.8560,
+    "contact_number": "+91-20-2550-6300",
+    "capacity": 50,
+    "details": {"engines": 8, "heavy_rescue_tender": true}
+  }
+]

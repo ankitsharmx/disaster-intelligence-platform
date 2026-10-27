@@ -1,0 +1,50 @@
+[
+  {
+    "hazard": "flood",
+    "stage": "before",
+    "language": "en",
+    "title": "Flood Preparedness: Before the Flood",
+    "instructions": [
+      "Keep disaster emergency kit ready with battery torch, radio, first-aid, dry rations, and bottled water.",
+      "Check drainage channels and stormwater exits near your house.",
+      "Safeguard important documents, deeds, and identification papers in waterproof bags.",
+      "Know the nearest safe municipal relief shelter and evacuation route."
+    ]
+  },
+  {
+    "hazard": "flood",
+    "stage": "during",
+    "language": "en",
+    "title": "Flood Safety: During the Flood",
+    "instructions": [
+      "Turn off electricity main switch and cooking gas cylinders immediately.",
+      "Do not walk or drive through flowing water; 15 cm of moving water can knock you down.",
+      "Move to higher ground or upper floors of concrete buildings.",
+      "Drink only boiled or chlorine-purified water to prevent waterborne disease outbreak."
+    ]
+  },
+  {
+    "hazard": "flood",
+    "stage": "after",
+    "language": "en",
+    "title": "Flood Recovery: After the Flood",
+    "instructions": [
+      "Do not enter flooded homes until authorities confirm structural safety.",
+      "Beware of snapped power lines, loose cables, and submerged reptiles.",
+      "Disinfect all flooded surfaces and dispose of contaminated food.",
+      "Report road blockages and stranded individuals via the Citizen Portal."
+    ]
+  },
+  {
+    "hazard": "earthquake",
+    "stage": "during",
+    "language": "en",
+    "title": "Earthquake Safety: Drop, Cover, and Hold",
+    "instructions": [
+      "DROP down onto your hands and knees.",
+      "COVER your head and neck underneath a sturdy table or desk.",
+      "HOLD ON until shaking stops completely.",
+      "Stay away from glass windows, exterior walls, and tall furniture."
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "scenario_id": "monsoon_flood_mumbai_01",
+  "name": "Simulated Monsoon Inundation and Flash Flood Event",
+  "description": "Simulates extreme rainfall over Mumbai Suburban, citizen distress reports, and subsequent automated emergency alert issuance.",
+  "duration_seconds": 25,
+  "events": [
+    {
+      "time_offset_seconds": 0,
+      "event_type": "hazard_observation",
+      "data": {
+        "hazard_type": "rainfall",
+        "station_id": "IMD_BOM_01",
+        "source": "imd_automatic_weather_station",
+        "latitude": 19.0760,
+        "longitude": 72.8777,
+        "values": {
+          "rainfall_1h_mm": 92.5,
+          "rainfall_24h_mm": 215.0,
+          "rate": "extreme",
+          "cloud_burst_risk": true
+        }
+      }
+    },
+    {
+      "time_offset_seconds": 4,
+      "event_type": "hazard_observation",
+      "data": {
+        "hazard_type": "flood",
+        "station_id": "MITHI_RIVER_GAUGE_03",
+        "source": "cwc_water_level_sensor",
+        "latitude": 19.0650,
+        "longitude": 72.8700,
+        "values": {
+          "water_level_meters": 4.1,
+          "danger_mark_meters": 3.8,
+          "trend": "rising_rapidly"
+        }
+      }
+    },
+    {
+      "time_offset_seconds": 8,
+      "event_type": "citizen_report",
+      "data": {
+        "type": "flood",
+        "description": "Milan Subway is completely submerged under 4 feet of water. 3 cars stuck, water entering bus.",
+        "latitude": 19.0885,
+        "longitude": 72.8432,
+        "status": "submitted"
+      }
+    },
+    {
+      "time_offset_seconds": 12,
+      "event_type": "citizen_report",
+      "data": {
+        "type": "trapped_people",
+        "description": "Ground floor homes inundated near Kurla railway colony. Water rising to waist level, elderly trapped.",
+        "latitude": 19.0680,
+        "longitude": 72.8790,
+        "status": "submitted"
+      }
+    },
+    {
+      "time_offset_seconds": 16,
+      "event_type": "alert",
+      "data": {
+        "type": "flood",
+        "title": "Red Alert: Severe Flash Flooding in Mumbai Suburban",
+        "description": "Flash flooding in Kurla, Milan Subway, and low-lying areas along Mithi River. All non-essential movement prohibited. Move to designated emergency shelters immediately.",
+        "severity": "critical",
+        "issuer": "District Collector & Municipal Disaster Management Cell",
+        "validity_hours": 12,
+        "target_district_names": ["Mumbai Suburban"]
+      }
+    },
+    {
+      "time_offset_seconds": 20,
+      "event_type": "facility_update",
+      "data": {
+        "facility_name": "Bandra Kurla Emergency Flood Shelter",
+        "status": "active_open",
+        "current_occupancy": 150,
+        "max_capacity": 1200,
+        "medical_staff_on_duty": true
+      }
+    }
+  ]
+}

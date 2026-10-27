@@ -1,0 +1,26 @@
+[
+  {
+    "hotspot_id": "MODIS_20261027_01",
+    "latitude": 19.1620,
+    "longitude": 72.9350,
+    "brightness_kelvin": 348.5,
+    "confidence_pct": 88,
+    "frp_mw": 42.1,
+    "observed_at": "2026-10-27T04:45:00Z",
+    "satellite": "Terra",
+    "instrument": "MODIS",
+    "probable_cause": "Industrial Chemical Storage Fire"
+  },
+  {
+    "hotspot_id": "VIIRS_20261027_02",
+    "latitude": 19.2410,
+    "longitude": 73.1200,
+    "brightness_kelvin": 330.2,
+    "confidence_pct": 74,
+    "frp_mw": 18.6,
+    "observed_at": "2026-10-27T06:10:00Z",
+    "satellite": "Suomi-NPP",
+    "instrument": "VIIRS",
+    "probable_cause": "Scrub Forest & Grass Fire"
+  }
+]

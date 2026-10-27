@@ -1,0 +1,44 @@
+[
+  {
+    "station_id": "IMD_BOM_01",
+    "location_name": "Santacruz AWS",
+    "latitude": 19.0760,
+    "longitude": 72.8777,
+    "observed_at": "2026-10-27T06:00:00Z",
+    "rainfall_1h_mm": 65.4,
+    "rainfall_24h_mm": 185.0,
+    "temperature_c": 27.2,
+    "humidity_pct": 98.0,
+    "wind_speed_kmh": 45.0,
+    "wind_gust_kmh": 68.0,
+    "condition": "Violent Monsoon Downpour"
+  },
+  {
+    "station_id": "IMD_BOM_02",
+    "location_name": "Colaba Coastal Station",
+    "latitude": 18.9067,
+    "longitude": 72.8147,
+    "observed_at": "2026-10-27T06:00:00Z",
+    "rainfall_1h_mm": 42.0,
+    "rainfall_24h_mm": 132.5,
+    "temperature_c": 28.0,
+    "humidity_pct": 95.0,
+    "wind_speed_kmh": 52.0,
+    "wind_gust_kmh": 72.0,
+    "condition": "Heavy Rain with High Waves"
+  },
+  {
+    "station_id": "IMD_THN_01",
+    "location_name": "Thane Belapur AWS",
+    "latitude": 19.2183,
+    "longitude": 72.9781,
+    "observed_at": "2026-10-27T06:00:00Z",
+    "rainfall_1h_mm": 78.5,
+    "rainfall_24h_mm": 210.0,
+    "temperature_c": 26.5,
+    "humidity_pct": 99.0,
+    "wind_speed_kmh": 38.0,
+    "wind_gust_kmh": 55.0,
+    "condition": "Severe Torrential Rain"
+  }
+]

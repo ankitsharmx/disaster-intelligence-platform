@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "state_code": "MH",
+    "state_name": "Maharashtra",
+    "srid": 4326
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "id": 1,
+        "state_id": 1,
+        "name": "Mumbai City",
+        "code": "MUM_CITY",
+        "center_lat": 18.96,
+        "center_lon": 72.83
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.8000, 18.9000],
+            [72.8800, 18.9000],
+            [72.8800, 19.0400],
+            [72.8000, 19.0400],
+            [72.8000, 18.9000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "id": 2,
+        "state_id": 1,
+        "name": "Mumbai Suburban",
+        "code": "MUM_SUB",
+        "center_lat": 19.12,
+        "center_lon": 72.88
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.7700, 19.0400],
+            [72.9800, 19.0400],
+            [72.9800, 19.3000],
+            [72.7700, 19.3000],
+            [72.7700, 19.0400]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "id": 3,
+        "state_id": 1,
+        "name": "Thane",
+        "code": "THANE",
+        "center_lat": 19.25,
+        "center_lon": 73.10
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.9800, 19.1500],
+            [73.3500, 19.1500],
+            [73.3500, 19.5500],
+            [72.9800, 19.5500],
+            [72.9800, 19.1500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "id": 4,
+        "state_id": 1,
+        "name": "Pune",
+        "code": "PUNE",
+        "center_lat": 18.52,
+        "center_lon": 73.85
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [73.6500, 18.3500],
+            [74.2500, 18.3500],
+            [74.2500, 18.8000],
+            [73.6500, 18.8000],
+            [73.6500, 18.3500]
+          ]
+        ]
+      }
+    }
+  ]
+}

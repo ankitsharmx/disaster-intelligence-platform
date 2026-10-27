@@ -1,0 +1,9 @@
+{
+  "dataset": "Administrative Boundaries and Disaster Critical Facilities",
+  "source": "OpenStreetMap contributors / Survey of India / Municipal Corporation Datasets",
+  "license": "Open Data Commons Open Database License (ODbL) / Government Open Data License - India (GODL)",
+  "retrieval_date": "2026-10-27",
+  "coordinate_reference_system": "EPSG:4326 (WGS 84)",
+  "maintainer": "Disaster Management System Engineering Team",
+  "notes": "Boundary geometries simplified for high-performance spatial resolution and real-time point-in-polygon queries."
+}
