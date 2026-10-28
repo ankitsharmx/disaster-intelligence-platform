@@ -155,7 +155,15 @@ Default Accounts:
 - `GET /api/v1/officer/operational-incidents` — GeoJSON FeatureCollection of all incidents regardless of status for internal officer GIS map.
 - `WebSocket /api/v1/officer/ws` — Real-time event broadcasting (`REPORT_CREATED`, `REPORT_ASSIGNED`, `REPORT_REVIEWED`, `REPORT_REOPENED`, `ALERT_CREATED`, `ALERT_ISSUED`, `ALERT_CANCELLED`).
 
-### 5.7. Audit Logging & Governance (`/api/v1/audit`)
+### 5.8. Intelligence & Machine Learning Risk Engine (`/api/v1/intelligence`)
+- `GET /api/v1/intelligence/risk/flood` — Deterministic flood risk assessment using IMD rainfall intensity criteria (>20 mm/hr medium, >45 mm/hr high, >70 mm/hr critical) and CWC river stage thresholds.
+- `GET /api/v1/intelligence/risk/landslide` — Deterministic landslide susceptibility using GSI slope gradients ($>30^\circ$) and 72-hour antecedent precipitation index triggers ($>150\,mm, >250\,mm$).
+- `GET /api/v1/intelligence/risk/district/{id}` — Multi-hazard indicative risk synthesis integrating terrain slope profiles, soil saturation, and ML model concordance.
+- `POST /api/v1/intelligence/confidence/evaluate` — Multi-signal explainable confidence scoring (`LOW`, `MEDIUM`, `HIGH`) evaluating coordinate boundary validity, text detail, media attachments, peer corroboration, and sensor consistency.
+- `POST /api/v1/intelligence/duplicates/cluster` — Spatio-temporal and TF-IDF semantic duplicate grouping for officer review queues (policy: grouped, never auto-deleted).
+- `GET /api/v1/intelligence/ml/benchmark` — scikit-learn model benchmark (`RandomForestClassifier` vs `GradientBoostingClassifier`) on a stratified 80/20 split ($N=600$ benchmark dataset) reporting Accuracy (98.3%), F1-Score, Precision, Recall, 4x4 Confusion Matrix, and Gini Feature Importances.
+
+### 5.9. Audit Logging & Governance (`/api/v1/audit`)
 - `GET /api/v1/audit/events` — Immutable administrative event log recording all state mutations with filterable actor and action parameters (accessible to authorized officers and administrators).
 
 ---
@@ -178,6 +186,7 @@ The application exposes two dedicated web portals:
 - **Verification Queue (`/officer/queue`)**: Filterable data table with report detail modal, ML duplicate candidates, and one-click actions (`Take Under Review`, `Verify`, `Reject`, `Resolve`, `Reopen`).
 - **Targeted Alert Composer (`/officer/alerts/new`)**: Authoritative warning composer with district geo-targeting, simulation/exercise toggle, and citizen alert card preview.
 - **Operational GIS Map (`/officer/map`)**: Restricted incident map displaying all pipeline states (unverified, under-review, rejected) with facility capacity inspector.
+- **Risk & ML Intelligence Center (`/officer/intelligence`)**: Multi-hazard indicative risk factor synthesis, interactive scikit-learn model benchmark scorecard, 4x4 confusion matrix, duplicate cluster viewer, and explainable credibility sandbox.
 - **Audit Viewer (`/officer/audit`)**: Tamper-evident governance viewer with action/actor filters and JSON payload inspection.
 
 ---
@@ -208,10 +217,16 @@ Run the automated backend test suite:
 ```bash
 docker compose exec -T api pytest -v
 ```
-All 26 tests covering data adapters, geographic resolution, intelligence modules, replay lifecycle, 4-role RBAC, overview APIs, alert management, incident submission and review lifecycle, operational metrics calculation, and audit logs are verified and passing.
+All 33 tests covering data adapters, geographic resolution, deterministic flood and landslide risk rules, spatio-temporal duplicate detection and clustering, multi-signal explainable confidence scoring, scikit-learn ML baseline training and evaluation, replay lifecycle, 4-role RBAC, overview APIs, alert management, incident submission and review lifecycle, operational metrics calculation, and audit logs are verified and passing.
 
-Run the Phase 4 End-to-End Operational Lifecycle script:
+Run the Phase 5 Intelligence & Risk Engine End-to-End script:
+```bash
+python test_e2e_phase5.py
+```
+Validates the complete 7-stage intelligence pipeline including IMD/CWC flood rules, GSI landslide rules, multi-hazard district synthesis, explainable confidence breakdown, duplicate clustering, and scikit-learn model benchmarking.
+
+Run the Phase 4 Government Dashboard End-to-End script:
 ```bash
 python test_e2e_phase4.py
 ```
-Validates the entire 13-step pipeline across live FastAPI, WebSockets, PostGIS, and Redis services.
+Validates the entire 13-step operational lifecycle across live FastAPI, WebSockets, PostGIS, and Redis services.

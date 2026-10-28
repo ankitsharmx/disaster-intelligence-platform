@@ -11,6 +11,7 @@ from app.api.v1 import (
     audit,
     replay,
     notifications,
+    intelligence,
 )
 
 api_router = APIRouter()
@@ -25,3 +26,4 @@ api_router.include_router(awareness.router)
 api_router.include_router(audit.router)
 api_router.include_router(replay.router)
 api_router.include_router(notifications.router)
+api_router.include_router(intelligence.router)

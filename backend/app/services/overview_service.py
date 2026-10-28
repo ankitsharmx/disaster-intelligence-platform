@@ -9,6 +9,8 @@ from app.models.hazard import HazardObservation, DataSourceRun
 from app.models.alert import Alert, AlertArea
 from app.models.awareness import AwarenessContent
 from app.intelligence.rules import RiskRuleEngine
+from app.intelligence.flood_risk import FloodRiskEngine
+from app.intelligence.landslide_risk import LandslideRiskEngine
 from app.core.exceptions import EntityNotFoundException
 
 
@@ -105,11 +107,18 @@ class OverviewService:
                 "valid_to": a.valid_to.isoformat() if a.valid_to else None,
             })
 
-        # 4. Compute risk estimates using RiskRuleEngine
+        # 4. Compute risk estimates using RiskRuleEngine and structured engines
         risk_assessments: Dict[str, Any] = {}
         for htype, obs_info in latest_observations.items():
             rule_eval = RiskRuleEngine.evaluate_observation(htype, obs_info["values"])
             risk_assessments[htype] = rule_eval
+
+        # Structured Indicative Risk Assessments (Phase 5)
+        flood_eval = FloodRiskEngine.calculate_risk(latest_observations, district_id=district_id)
+        landslide_eval = LandslideRiskEngine.calculate_risk(latest_observations, district_id=district_id)
+        risk_assessments["structured_flood"] = flood_eval
+        risk_assessments["structured_landslide"] = landslide_eval
+        risk_assessments["indicative_disclaimer"] = "Indicative risk — not an official warning."
 
         # 5. Retrieve safety guidance tailored to active hazard
         primary_hazard = "flood"

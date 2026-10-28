@@ -15,6 +15,7 @@ import {
   LogOut,
   ChevronDown,
   Building2,
+  Cpu,
 } from "lucide-react";
 import { api } from "@/lib/api";
 
@@ -168,6 +169,7 @@ export default function OfficerLayout({ children }: { children: React.ReactNode 
     { href: "/officer/queue", label: "Verification Queue", icon: CheckSquare },
     { href: "/officer/alerts/new", label: "Alert Composer", icon: Send },
     { href: "/officer/map", label: "Operational Map", icon: Map },
+    { href: "/officer/intelligence", label: "Risk & ML Engine", icon: Cpu },
     { href: "/officer/audit", label: "Audit Trail", icon: History },
   ];
 
