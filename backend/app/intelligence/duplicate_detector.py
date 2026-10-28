@@ -90,5 +90,17 @@ class DuplicateDetector:
 
         return False, None, 0.0
 
+    def calculate_similarity(self, text1: str, text2: str) -> float:
+        """Calculates TF-IDF cosine similarity between two text descriptions."""
+        if not text1 or not text2:
+            return 0.0
+        try:
+            vectorizer = TfidfVectorizer(stop_words="english")
+            tfidf_matrix = vectorizer.fit_transform([text1, text2])
+            sim = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+            return float(round(sim, 3))
+        except Exception:
+            return 0.0
+
 
 duplicate_detector = DuplicateDetector()

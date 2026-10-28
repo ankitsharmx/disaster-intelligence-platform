@@ -45,6 +45,7 @@ export default function Navbar() {
     { href: "/report", label: language === "en" ? "Report Incident" : "घटना दर्ज करें", icon: FilePlus2, highlight: true },
     { href: "/reports/my", label: language === "en" ? "My Reports" : "मेरी रिपोर्ट", icon: ClipboardList },
     { href: "/awareness", label: language === "en" ? "Safety Guides" : "सुरक्षा मार्गदर्शिका", icon: BookOpen },
+    { href: "/officer", label: language === "en" ? "Govt Portal" : "अधिकारी पोर्टल", icon: ShieldAlert, isOfficer: true },
   ];
 
   return (
@@ -161,6 +162,8 @@ export default function Navbar() {
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-medium transition ${
                     link.highlight
                       ? "bg-orange-600 hover:bg-orange-500 text-white font-bold ml-1 shadow-sm"
+                      : link.isOfficer
+                      ? "bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-700/70 font-semibold ml-1"
                       : isActive
                       ? "bg-slate-800 text-orange-400 border border-slate-700"
                       : "text-slate-300 hover:bg-slate-800 hover:text-white"

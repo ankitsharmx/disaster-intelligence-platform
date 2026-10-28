@@ -19,6 +19,7 @@ from app.services.geography_service import geography_service
 from app.intelligence.scoring import ConfidenceScorer
 from app.intelligence.duplicate_detector import duplicate_detector
 from app.core.roles import Role
+from app.core.websocket import manager
 from app.core.exceptions import (
     EntityNotFoundException,
     PermissionDeniedException,
@@ -158,6 +159,14 @@ class ReportService:
         db.add(audit)
         await db.commit()
         await db.refresh(report)
+
+        await manager.broadcast({
+            "type": "REPORT_CREATED",
+            "report_id": report.id,
+            "district_id": district_id,
+            "type": report.type,
+            "status": report.status,
+        })
 
         # 4. Trigger non-blocking background analysis
         background_tasks.add_task(async_process_report_intelligence, report.id)
@@ -329,6 +338,14 @@ class ReportService:
         db.add(audit)
         await db.commit()
         await db.refresh(report)
+
+        await manager.broadcast({
+            "type": "REPORT_ASSIGNED",
+            "report_id": report.id,
+            "district_id": report.district_id,
+            "status": report.status,
+            "assigned_to": officer.email,
+        })
         return report
 
     @classmethod
@@ -383,6 +400,15 @@ class ReportService:
         db.add(audit)
         await db.commit()
         await db.refresh(report)
+
+        await manager.broadcast({
+            "type": "REPORT_REVIEWED",
+            "report_id": report.id,
+            "district_id": report.district_id,
+            "decision": decision_clean,
+            "status": report.status,
+            "reviewer": officer.email,
+        })
         return report
 
     @classmethod
@@ -430,6 +456,14 @@ class ReportService:
         db.add(audit)
         await db.commit()
         await db.refresh(report)
+
+        await manager.broadcast({
+            "type": "REPORT_REOPENED",
+            "report_id": report.id,
+            "district_id": report.district_id,
+            "reopened_count": report.reopened_count,
+            "status": report.status,
+        })
         return report
 
 

@@ -145,12 +145,44 @@ Default Accounts:
 - `GET /api/v1/map/layers?district_id=...` — Unified GeoJSON layers for boundaries, facilities, and verified incidents.
 - **Publication Rule**: Unverified and rejected reports are **strictly excluded** from public map feeds to prevent panic and misinformation.
 
-### 5.6. Audit Logging (`/api/v1/audit`)
-- `GET /api/v1/audit/events` — Immutable administrative event log recording all state mutations (restricted to `STATE_ADMIN` and `SYSTEM_ADMIN`).
+### 5.6. Government Dashboard & Officer Workspace (`/api/v1/officer`)
+- `GET /api/v1/officer/metrics` — Live operational counts (`submitted`, `under_review`, `verified`, `rejected`, `resolved`, `unresolved`, `active_alerts`) where $unresolved = submitted + under\_review + verified$.
+- `GET /api/v1/officer/reports` — Filterable verification queue scoped strictly to officer jurisdiction.
+- `GET /api/v1/officer/reports/{id}/detail` — Comprehensive report inspector uniting media, review timeline, nearby environmental sensors, and scikit-learn TF-IDF duplicate detection clusters.
+- `POST /api/v1/officer/reports/{id}/assign` — Assign incident to self and transition status to `under_review`.
+- `POST /api/v1/officer/reports/{id}/review` — Formal decision (`verified`, `rejected`, `resolved`) with atomic audit logging.
+- `POST /api/v1/officer/reports/{id}/reopen` — Reopens resolved/rejected reports back to `under_review` with incremented counter.
+- `GET /api/v1/officer/operational-incidents` — GeoJSON FeatureCollection of all incidents regardless of status for internal officer GIS map.
+- `WebSocket /api/v1/officer/ws` — Real-time event broadcasting (`REPORT_CREATED`, `REPORT_ASSIGNED`, `REPORT_REVIEWED`, `REPORT_REOPENED`, `ALERT_CREATED`, `ALERT_ISSUED`, `ALERT_CANCELLED`).
+
+### 5.7. Audit Logging & Governance (`/api/v1/audit`)
+- `GET /api/v1/audit/events` — Immutable administrative event log recording all state mutations with filterable actor and action parameters (accessible to authorized officers and administrators).
 
 ---
 
-## 6. Scenario Replay Engine
+## 6. Next.js Web Interfaces
+
+The application exposes two dedicated web portals:
+
+### Citizen Web Application
+- **Home (`/`)**: State & district selector, active alert cards, live weather & hazard overview, nearby shelter/hospital directory, localized safety instructions.
+- **Alert Feed (`/alerts`)**: Live and indicative alerts with severity badges, countdown validity, and hazard filters.
+- **Interactive Citizen Map (`/map`)**: Leaflet GIS map with administrative boundaries, critical facilities (hospitals, shelters), and verified public reports only.
+- **Report Wizard (`/report`)**: Incident reporting with GPS autofill, interactive map pin drop, and file evidence upload.
+- **My Submissions (`/reports/my`)**: Citizen status tracker with timeline progression (`Submitted` $\rightarrow$ `Under Review` $\rightarrow$ `Verified` / `Rejected` $\rightarrow$ `Resolved`).
+- **Disaster Preparedness Guide (`/awareness`)**: Multilingual (English / Hindi / Marathi) emergency guides and safety protocols.
+
+### Government Operations Dashboard
+- **Command Layout (`/officer`)**: Header persona switcher (`District Officer Mumbai`, `District Officer Pune`, `State Admin MH`, `System Admin`), live WebSocket connectivity badge, and quick stats.
+- **Operational Metrics (`/officer`)**: Live database-driven metric cards with drill-down links to verification workflows.
+- **Verification Queue (`/officer/queue`)**: Filterable data table with report detail modal, ML duplicate candidates, and one-click actions (`Take Under Review`, `Verify`, `Reject`, `Resolve`, `Reopen`).
+- **Targeted Alert Composer (`/officer/alerts/new`)**: Authoritative warning composer with district geo-targeting, simulation/exercise toggle, and citizen alert card preview.
+- **Operational GIS Map (`/officer/map`)**: Restricted incident map displaying all pipeline states (unverified, under-review, rejected) with facility capacity inspector.
+- **Audit Viewer (`/officer/audit`)**: Tamper-evident governance viewer with action/actor filters and JSON payload inspection.
+
+---
+
+## 7. Scenario Replay Engine
 
 Simulates realistic disaster progression (e.g. Extreme Rainfall $\rightarrow$ River Level Rise $\rightarrow$ Citizen SOS Reports $\rightarrow$ Automated Red Alert Issuance $\rightarrow$ Shelter Activation).
 
@@ -172,9 +204,14 @@ python -m app.workers.replay_worker --scenario monsoon_flood_scenario.json --spe
 
 ## 8. Running Tests
 
-Run the automated test suite with coverage:
+Run the automated backend test suite:
 ```bash
-$env:PYTHONPATH="backend"
-pytest -v
+docker compose exec -T api pytest -v
 ```
-All 23 tests covering data adapters, geographic resolution, intelligence modules, replay lifecycle, 4-role RBAC, overview APIs, alert management, incident submission and review lifecycle, and audit logs are verified and passing.
+All 26 tests covering data adapters, geographic resolution, intelligence modules, replay lifecycle, 4-role RBAC, overview APIs, alert management, incident submission and review lifecycle, operational metrics calculation, and audit logs are verified and passing.
+
+Run the Phase 4 End-to-End Operational Lifecycle script:
+```bash
+python test_e2e_phase4.py
+```
+Validates the entire 13-step pipeline across live FastAPI, WebSockets, PostGIS, and Redis services.

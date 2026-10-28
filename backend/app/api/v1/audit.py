@@ -6,7 +6,7 @@ from sqlalchemy import select
 from app.db.session import get_db
 from app.models.audit import AuditEvent
 from app.models.user import User
-from app.api.deps import require_admin_or_above
+from app.api.deps import require_officer_or_above
 
 router = APIRouter(prefix="/audit", tags=["Audit Log & Governance"])
 
@@ -16,7 +16,7 @@ async def list_audit_events(
     actor: Optional[str] = Query(None, description="Filter by actor email or service name"),
     action: Optional[str] = Query(None, description="Filter by action name"),
     limit: int = Query(50, ge=1, le=200),
-    current_user: User = Depends(require_admin_or_above),
+    current_user: User = Depends(require_officer_or_above),
     db: AsyncSession = Depends(get_db),
 ):
     """

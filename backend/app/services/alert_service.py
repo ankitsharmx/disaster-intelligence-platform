@@ -9,6 +9,7 @@ from app.models.geography import District
 from app.models.user import User
 from app.models.audit import AuditEvent
 from app.core.roles import Role
+from app.core.websocket import manager
 from app.core.exceptions import (
     EntityNotFoundException,
     PermissionDeniedException,
@@ -123,6 +124,14 @@ class AlertService:
         db.add(audit)
         await db.commit()
         await db.refresh(alert)
+        await manager.broadcast({
+            "type": "ALERT_CREATED" if not as_draft else "ALERT_DRAFTED",
+            "alert_id": alert.id,
+            "title": alert.title,
+            "severity": alert.severity,
+            "status": alert.status,
+            "districts": district_ids,
+        })
         return alert
 
     @classmethod
@@ -152,6 +161,14 @@ class AlertService:
         db.add(audit)
         await db.commit()
         await db.refresh(alert)
+        await manager.broadcast({
+            "type": "ALERT_ISSUED",
+            "alert_id": alert.id,
+            "title": alert.title,
+            "severity": alert.severity,
+            "status": alert.status,
+            "districts": district_ids,
+        })
         return alert
 
     @classmethod
@@ -181,6 +198,14 @@ class AlertService:
         db.add(audit)
         await db.commit()
         await db.refresh(alert)
+        await manager.broadcast({
+            "type": "ALERT_CANCELLED",
+            "alert_id": alert.id,
+            "title": alert.title,
+            "severity": alert.severity,
+            "status": alert.status,
+            "districts": district_ids,
+        })
         return alert
 
     @classmethod
@@ -206,6 +231,14 @@ class AlertService:
         db.add(audit)
         await db.commit()
         await db.refresh(alert)
+        await manager.broadcast({
+            "type": "ALERT_EXPIRED",
+            "alert_id": alert.id,
+            "title": alert.title,
+            "severity": alert.severity,
+            "status": alert.status,
+            "districts": district_ids,
+        })
         return alert
 
 
