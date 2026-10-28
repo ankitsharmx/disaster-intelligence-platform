@@ -50,8 +50,8 @@ async def list_districts(
 
 @router.get("/resolve", response_model=DistrictResolveResponse)
 async def resolve_district_get(
-    latitude: float = Query(..., description="Latitude coordinate"),
-    longitude: float = Query(..., description="Longitude coordinate"),
+    latitude: float = Query(..., ge=-90.0, le=90.0, description="Latitude coordinate between -90 and 90"),
+    longitude: float = Query(..., ge=-180.0, le=180.0, description="Longitude coordinate between -180 and 180"),
 ):
     """
     GET coordinate-to-district resolution endpoint.

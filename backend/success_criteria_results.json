@@ -1,0 +1,53 @@
+{
+  "location_resolution_accuracy": {
+    "metric": "Correct location resolution",
+    "target": ">= 95%",
+    "achieved": "100.0% (39/39)",
+    "raw_value": 100.0,
+    "sample_count": 39,
+    "passed": true
+  },
+  "location_overview_latency": {
+    "metric": "Location overview response time",
+    "target": "< 3s (3000 ms)",
+    "achieved": "avg: 36.3ms, p95: 144.3ms, max: 235.4ms",
+    "raw_p95_ms": 144.33707695052362,
+    "passed": true
+  },
+  "alert_targeting": {
+    "metric": "Alert targeting",
+    "target": "All inside, none outside",
+    "achieved": "100% inside, 0% leakage (Precision: 100%, Recall: 100%)",
+    "passed": true
+  },
+  "report_submission_latency": {
+    "metric": "Report submission to officer queue",
+    "target": "< 5s (5000 ms)",
+    "achieved": "avg: 194.4ms, max: 365.5ms",
+    "passed": true
+  },
+  "duplicate_grouping_accuracy": {
+    "metric": "Duplicate grouping on synthetic examples",
+    "target": ">= 90%",
+    "achieved": "100.0% (10/10)",
+    "passed": true
+  },
+  "false_reports_low_confidence": {
+    "metric": "False/inconsistent synthetic reports marked Low confidence",
+    "target": ">= 80%",
+    "achieved": "100.0% (10/10)",
+    "passed": true
+  },
+  "unverified_public_reports": {
+    "metric": "Unverified public reports",
+    "target": "0 (Zero tolerance)",
+    "achieved": "0",
+    "passed": true
+  },
+  "unauthorized_operations_rejected": {
+    "metric": "Unauthorized operations",
+    "target": "All rejected (100%)",
+    "achieved": "100.0% (10/10)",
+    "passed": true
+  }
+}

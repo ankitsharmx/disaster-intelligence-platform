@@ -10,6 +10,7 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from app.services.replay_service import replay_engine
+from app.workers.ingestion_worker import run_ingestion_cycle
 
 logging.basicConfig(
     level=logging.INFO,
@@ -42,10 +43,26 @@ async def run_cli_replay(scenario: str, speed: float):
 
 
 async def run_daemon_worker():
-    """Worker daemon mode waiting for replay triggers or scheduled batch ingestion."""
-    logger.info("Demo Replay & Ingestion Worker running in daemon mode. Ready for commands...")
+    """Worker daemon mode executing recurring external data ingestion and listening for replay triggers."""
+    logger.info("Worker daemon started. Executing initial multi-hazard ingestion...")
+    try:
+        await run_ingestion_cycle()
+    except Exception as e:
+        logger.warning(f"Initial worker ingestion cycle had warning: {e}")
+
+    logger.info("Worker daemon entering recurring schedule (sync cycle every 60s)...")
+    sync_interval = 60.0  # seconds
+    last_sync = asyncio.get_event_loop().time()
+
     while True:
         await asyncio.sleep(5.0)
+        now = asyncio.get_event_loop().time()
+        if now - last_sync >= sync_interval:
+            try:
+                await run_ingestion_cycle()
+            except Exception as e:
+                logger.error(f"Error during periodic worker ingestion cycle: {e}")
+            last_sync = now
 
 
 def main():

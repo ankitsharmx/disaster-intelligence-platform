@@ -95,4 +95,6 @@ class AlertDemoSource(HazardSource):
             "status": "success",
             "records_count": len(validated),
             "records": validated,
+            "duration_ms": 15.0,
+            "error": None,
         }

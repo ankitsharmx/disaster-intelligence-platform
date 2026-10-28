@@ -10,7 +10,7 @@ if str(BASE_DIR) not in sys.path:
 
 from app.db.session import AsyncSessionLocal
 from app.integrations.weather import WeatherDemoSource, WeatherLiveSource
-from app.integrations.earthquake import EarthquakeDemoSource
+from app.integrations.earthquake import EarthquakeDemoSource, EarthquakeLiveSource
 from app.integrations.fire import FireDemoSource
 from app.integrations.alert_feed import AlertDemoSource
 
@@ -19,9 +19,11 @@ logger = logging.getLogger("ingestion_worker")
 
 
 async def run_ingestion_cycle():
-    """Runs a single round of all registered data source adapters."""
+    """Runs a single round of all registered data source adapters (Live public feeds and Demo sources)."""
     logger.info("Executing scheduled ingestion cycle for all active hazard adapters...")
     sources = [
+        EarthquakeLiveSource(),
+        WeatherLiveSource(),
         WeatherDemoSource(),
         EarthquakeDemoSource(),
         FireDemoSource(),
