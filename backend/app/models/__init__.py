@@ -6,6 +6,7 @@ from app.models.alert import Alert, AlertArea
 from app.models.report import CitizenReport, ReportMedia, ReportReview
 from app.models.audit import AuditEvent
 from app.models.awareness import AwarenessContent
+from app.models.notification import NotificationSubscription
 
 __all__ = [
     "Base",
@@ -22,4 +23,5 @@ __all__ = [
     "ReportReview",
     "AuditEvent",
     "AwarenessContent",
+    "NotificationSubscription",
 ]

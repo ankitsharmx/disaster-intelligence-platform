@@ -5,10 +5,10 @@
     "language": "en",
     "title": "Flood Preparedness: Before the Flood",
     "instructions": [
-      "Keep disaster emergency kit ready with battery torch, radio, first-aid, dry rations, and bottled water.",
-      "Check drainage channels and stormwater exits near your house.",
-      "Safeguard important documents, deeds, and identification papers in waterproof bags.",
-      "Know the nearest safe municipal relief shelter and evacuation route."
+      "Keep an emergency disaster kit ready with torch, radio, dry rations, first aid, and bottled water.",
+      "Inspect stormwater channels and drainage exits around your residence.",
+      "Seal vital identification cards, deeds, and insurance policies in waterproof pouches.",
+      "Familiarize your family with the nearest municipal relief shelter and evacuation route."
     ]
   },
   {
@@ -17,10 +17,10 @@
     "language": "en",
     "title": "Flood Safety: During the Flood",
     "instructions": [
-      "Turn off electricity main switch and cooking gas cylinders immediately.",
-      "Do not walk or drive through flowing water; 15 cm of moving water can knock you down.",
-      "Move to higher ground or upper floors of concrete buildings.",
-      "Drink only boiled or chlorine-purified water to prevent waterborne disease outbreak."
+      "Switch off main electrical breakers and disconnect cooking gas cylinders immediately.",
+      "Never walk, swim, or drive through moving water. 15 cm of fast water can sweep you away.",
+      "Move to higher ground or upper concrete floors of multi-story structures.",
+      "Drink only boiled or chlorine-treated water to avoid waterborne cholera/gastroenteritis."
     ]
   },
   {
@@ -29,22 +29,262 @@
     "language": "en",
     "title": "Flood Recovery: After the Flood",
     "instructions": [
-      "Do not enter flooded homes until authorities confirm structural safety.",
-      "Beware of snapped power lines, loose cables, and submerged reptiles.",
-      "Disinfect all flooded surfaces and dispose of contaminated food.",
-      "Report road blockages and stranded individuals via the Citizen Portal."
+      "Do not enter submerged buildings until disaster authorities certify structural integrity.",
+      "Watch out for fallen electrical wires, severed power lines, and displaced venomous reptiles.",
+      "Thoroughly clean and disinfect all water-touched surfaces; discard spoiled food.",
+      "Report road blockages, fallen trees, and stranded neighbors through the Citizen Portal."
+    ]
+  },
+  {
+    "hazard": "flood",
+    "stage": "before",
+    "language": "hi",
+    "title": "बाढ़ पूर्व तैयारी: बाढ़ से पहले",
+    "instructions": [
+      "टॉर्च, रेडियो, सूखा राशन, प्राथमिक चिकित्सा किट और स्वच्छ पानी के साथ आपातकालीन किट तैयार रखें।",
+      "अपने घर और आसपास के नालों और जल निकासी मार्गों की जांच करें।",
+      "आवश्यक दस्तावेज, पहचान पत्र और बीमा कागजात वाटरप्रूफ बैग में सुरक्षित रखें।",
+      "निकटतम नगर निगम राहत शिविर और सुरक्षित निकासी मार्ग की जानकारी रखें।"
+    ]
+  },
+  {
+    "hazard": "flood",
+    "stage": "during",
+    "language": "hi",
+    "title": "बाढ़ सुरक्षा: बाढ़ के दौरान",
+    "instructions": [
+      "तुरंत मुख्य बिजली स्विच बंद करें और गैस सिलेंडर का रेगुलेटर अलग करें।",
+      "बहते पानी में चलने, तैरने या गाड़ी चलाने की कोशिश न करें; 15 सेमी बहता पानी आपको गिरा सकता है।",
+      "तुरंत ऊंचे स्थानों या पक्के भवनों की ऊपरी मंजिलों पर चले जाएं।",
+      "जलजनित बीमारियों से बचने के लिए केवल उबला हुआ या शुद्ध पानी ही पिएं।"
+    ]
+  },
+  {
+    "hazard": "flood",
+    "stage": "after",
+    "language": "hi",
+    "title": "बाढ़ के बाद: पुनर्प्राप्ति और सावधानी",
+    "instructions": [
+      "जब तक अधिकारी भवन को सुरक्षित घोषित न करें, बाढ़ प्रभावित इमारतों में प्रवेश न करें।",
+      "टूटे हुए बिजली के तारों, खंभों और छिपे हुए जहरीले जीवों से सावधान रहें।",
+      "बाढ़ के संपर्क में आई सभी वस्तुओं को विसंक्रमित करें और दूषित भोजन फेंक दें।",
+      "सड़क अवरोधों और फंसे हुए लोगों की जानकारी नागरिक पोर्टल पर दर्ज करें।"
+    ]
+  },
+  {
+    "hazard": "earthquake",
+    "stage": "before",
+    "language": "en",
+    "title": "Earthquake Preparedness: Before Shaking",
+    "instructions": [
+      "Anchor tall bookshelves, heavy cabinets, and overhead fans securely to wall studs.",
+      "Identify safe interior drop zones away from exterior glass windows and heavy chandeliers.",
+      "Maintain a family communication plan and rendezvous point outside vulnerable buildings.",
+      "Learn how to shut off municipal water, gas, and power supply lines."
     ]
   },
   {
     "hazard": "earthquake",
     "stage": "during",
     "language": "en",
-    "title": "Earthquake Safety: Drop, Cover, and Hold",
+    "title": "Earthquake Response: Drop, Cover, and Hold",
     "instructions": [
-      "DROP down onto your hands and knees.",
-      "COVER your head and neck underneath a sturdy table or desk.",
-      "HOLD ON until shaking stops completely.",
-      "Stay away from glass windows, exterior walls, and tall furniture."
+      "DROP immediately to hands and knees to prevent being knocked over.",
+      "COVER your head, neck, and torso under a sturdy table, desk, or reinforced beam.",
+      "HOLD ON to your shelter until ground motion ceases completely.",
+      "If outdoors, move into open spaces away from high-rises, utility poles, and flyovers."
+    ]
+  },
+  {
+    "hazard": "earthquake",
+    "stage": "after",
+    "language": "en",
+    "title": "Earthquake Safety: After the Tremors",
+    "instructions": [
+      "Expect aftershocks. Be prepared to Drop, Cover, and Hold repeatedly.",
+      "Inspect gas pipes for leaks using smell; never strike matches or turn on switches if gas is suspected.",
+      "Evacuate multi-story buildings using stairs only; never use elevators.",
+      "Check yourself and nearby individuals for injuries and administer first aid."
+    ]
+  },
+  {
+    "hazard": "earthquake",
+    "stage": "before",
+    "language": "hi",
+    "title": "भूकंप पूर्व तैयारी: झटकों से पहले",
+    "instructions": [
+      "भारी अलमारियों, बुकशेल्फ़ और पंखों को दीवार से मजबूती से बांधें।",
+      "कांच की खिड़कियों और भारी झूमरों से दूर घर में सुरक्षित स्थानों की पहचान करें।",
+      "परिवार के लिए आपातकालीन संपर्क योजना और सुरक्षित मिलन स्थल तय करें।",
+      "बिजली और गैस बंद करने का तरीका परिवार के सभी सदस्यों को सिखाएं।"
+    ]
+  },
+  {
+    "hazard": "earthquake",
+    "stage": "during",
+    "language": "hi",
+    "title": "भूकंप के दौरान: झुकें, ढकें और पकड़ें (Drop, Cover, Hold)",
+    "instructions": [
+      "तुरंत घुटनों के बल झुक जाएं ताकि गिरने से बच सकें।",
+      "किसी मजबूत मेज या डेस्क के नीचे सिर और गर्दन को ढकें।",
+      "कंपन पूरी तरह रुकने तक मजबूती से पकड़ बनाए रखें।",
+      "यदि बाहर हैं, तो इमारतों, बिजली के खंभों और ओवरब्रिज से दूर खुले मैदान में जाएं।"
+    ]
+  },
+  {
+    "hazard": "earthquake",
+    "stage": "after",
+    "language": "hi",
+    "title": "भूकंप के बाद: सावधानियां और राहत",
+    "instructions": [
+      "आफ्टरशॉक (बाद के झटके) के लिए तैयार रहें और पुनः सुरक्षा उपाय अपनाएं।",
+      "गैस रिसाव की जांच करें; संदेह होने पर माचिस न जलाएं और बिजली स्विच न दबाएं।",
+      "बहुमंजिला इमारतों से बाहर निकलते समय केवल सीढ़ियों का उपयोग करें, लिफ्ट का नहीं।",
+      "घायलों की जांच करें और प्राथमिक उपचार प्रदान करें।"
+    ]
+  },
+  {
+    "hazard": "fire",
+    "stage": "before",
+    "language": "en",
+    "title": "Fire Preparedness: Prevention & Drills",
+    "instructions": [
+      "Install and regularly test smoke alarms in living areas and kitchen spaces.",
+      "Keep an operational ABC-type fire extinguisher on each floor and know how to use it (PASS: Pull, Aim, Squeeze, Sweep).",
+      "Ensure escape routes and balcony fire exits remain completely unobstructed.",
+      "Never overload electrical sockets or run cables beneath rugs."
+    ]
+  },
+  {
+    "hazard": "fire",
+    "stage": "during",
+    "language": "en",
+    "title": "Fire Emergency: Evacuate & Crawl Low",
+    "instructions": [
+      "If smoke is present, crawl low on hands and knees where breathable air remains.",
+      "Feel door handles before opening; if hot, do not open—use an alternate escape route.",
+      "Never use elevators during a structural fire; descend via stairwells.",
+      "If clothes catch fire: Stop, Drop, and Roll until flames are extinguished."
+    ]
+  },
+  {
+    "hazard": "fire",
+    "stage": "after",
+    "language": "en",
+    "title": "Fire Aftermath: Safety First",
+    "instructions": [
+      "Do not re-enter fire-damaged premises until certified by Fire Brigade personnel.",
+      "Watch for smoldering embers and hidden heat pockets that could reignite.",
+      "Discard any food, beverages, or medicines exposed to heat or toxic smoke.",
+      "Document structural damage for municipal relief and insurance assessment."
+    ]
+  },
+  {
+    "hazard": "fire",
+    "stage": "before",
+    "language": "hi",
+    "title": "अग्नि सुरक्षा तैयारी: रोकथाम और योजना",
+    "instructions": [
+      "घर और कार्यस्थल पर अग्निशामक यंत्र (Fire Extinguisher) रखें और चलाने का अभ्यास करें।",
+      "निकासी मार्गों और सीढ़ियों को हमेशा पूरी तरह खुला और बाधा मुक्त रखें।",
+      "एक ही सॉकेट पर कई भारी बिजली उपकरण न जोड़ें।",
+      "रसोई में गैस पाइप और रेगुलेटर की नियमित जांच करें।"
+    ]
+  },
+  {
+    "hazard": "fire",
+    "stage": "during",
+    "language": "hi",
+    "title": "आग लगने पर: तुरंत निकासी और सुरक्षा",
+    "instructions": [
+      "धुआं होने पर फर्श के करीब झुककर रेंगें क्योंकि नीचे स्वच्छ हवा होती है।",
+      "दरवाजा खोलने से पहले हैंडल छूकर देखें; यदि गर्म हो तो दरवाजा न खोलें।",
+      "आग के समय कभी भी लिफ्ट का उपयोग न करें, केवल सीढ़ियों से नीचे उतरें।",
+      "यदि कपड़ों में आग लगे तो: रुकें, जमीन पर लेटें और लुढ़कें (Stop, Drop, Roll)।"
+    ]
+  },
+  {
+    "hazard": "fire",
+    "stage": "after",
+    "language": "hi",
+    "title": "आग बुझने के बाद: सावधानीपूर्वक वापसी",
+    "instructions": [
+      "दमकल विभाग की अनुमति के बिना जली हुई इमारत में वापस न जाएं।",
+      "सुलगते हुए अंगारों और कमजोर छतों/दीवारों से दूर रहें।",
+      "धुएं और गर्मी के संपर्क में आए भोजन और पानी का उपयोग न करें।",
+      "आपातकालीन सेवाओं को राहत कार्य में सहयोग दें।"
+    ]
+  },
+  {
+    "hazard": "cyclone",
+    "stage": "before",
+    "language": "en",
+    "title": "Cyclone Alert: Securing Home & Family",
+    "instructions": [
+      "Board up glass windows or apply heavy-duty tape to avoid shattered glass hazard.",
+      "Trim dead tree branches near powerlines and roof structures.",
+      "Store sufficient emergency non-perishable food, potable water, and medical supplies for 72 hours.",
+      "Anchor outdoor furniture, water tanks, and loose metal sheets."
+    ]
+  },
+  {
+    "hazard": "cyclone",
+    "stage": "during",
+    "language": "en",
+    "title": "Cyclone Strike: Shelter Indoors",
+    "instructions": [
+      "Remain inside the strongest interior room away from all doors and glass windows.",
+      "Do not be misled if calm occurs suddenly; it may be the eye of the storm followed by reverse gale winds.",
+      "Keep battery-powered radio tuned to official IMD weather bulletins.",
+      "Disconnect all non-essential electrical appliances and turn off gas supply."
+    ]
+  },
+  {
+    "hazard": "cyclone",
+    "stage": "after",
+    "language": "en",
+    "title": "Cyclone Aftermath: Cautious Recovery",
+    "instructions": [
+      "Remain sheltered until authorities declare the cyclone has completely passed.",
+      "Stay away from fallen trees, damaged bridges, and snapped electric lines.",
+      "Report gas leaks, fallen utility poles, and water main breaks to municipal control rooms.",
+      "Avoid driving through debris-strewn roads until emergency clearances are complete."
+    ]
+  },
+  {
+    "hazard": "cyclone",
+    "stage": "before",
+    "language": "hi",
+    "title": "चक्रवात पूर्व तैयारी: सुरक्षा और सतर्कता",
+    "instructions": [
+      "खिड़कियों के शीशों पर सुरक्षा टेप लगाएं और ढीली वस्तुओं को बांधें।",
+      "कम से कम 3 दिनों के लिए पीने का पानी, सूखा राशन और जरूरी दवाइयां सुरक्षित रखें।",
+      "घर के पास सूखे पेड़ों की डालियों को कटवाएं ताकि तारों पर न गिरें।",
+      "मौसम विभाग (IMD) की चेतावनियों पर रेडियो या मोबाइल के माध्यम से नजर रखें।"
+    ]
+  },
+  {
+    "hazard": "cyclone",
+    "stage": "during",
+    "language": "hi",
+    "title": "चक्रवात के दौरान: घर के भीतर सुरक्षित रहें",
+    "instructions": [
+      "मजबूत पक्के कमरे में रहें और खिड़कियों व दरवाजों से दूर रहें।",
+      "यदि तूफान के बीच अचानक शांति छा जाए तो बाहर न निकलें; यह तूफान की आंख (Eye of Storm) हो सकती है।",
+      "बिजली के मुख्य स्विच और गैस सिलेंडर को बंद रखें।",
+      "केवल आधिकारिक सूचनाओं और राहत निर्देशों का पालन करें।"
+    ]
+  },
+  {
+    "hazard": "cyclone",
+    "stage": "after",
+    "language": "hi",
+    "title": "चक्रवात के बाद: पुनर्प्राप्ति और सावधानी",
+    "instructions": [
+      "जब तक अधिकारी तूफान के समाप्त होने की पुष्टि न करें, आश्रय से बाहर न निकलें।",
+      "सड़क पर गिरे बिजली के तारों, खंभों और ढहे हुए ढांचों से दूर रहें।",
+      "पानी उबालकर पिएं और क्षतिग्रस्त इमारतों में जाने से बचें।",
+      "सड़क अवरोधों की सूचना आपदा प्रबंधन नियंत्रण कक्ष को दें।"
     ]
   }
 ]

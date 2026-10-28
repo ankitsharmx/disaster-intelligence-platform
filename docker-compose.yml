@@ -54,6 +54,20 @@ services:
       redis:
         condition: service_healthy
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cap_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+      - BACKEND_INTERNAL_URL=http://api:8000
+    depends_on:
+      - api
+
   worker:
     build:
       context: ./backend
