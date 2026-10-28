@@ -16,11 +16,20 @@ class AlertCreate(BaseModel):
     type: str
     title: str
     description: str
-    severity: str
+    severity: str  # low, medium, high, critical
     issuer: str
     valid_from: datetime
     valid_to: datetime
     district_ids: Optional[List[int]] = []
+    is_official: Optional[bool] = None
+
+
+class AlertDraftCreate(AlertCreate):
+    pass
+
+
+class AlertCancelRequest(BaseModel):
+    reason: Optional[str] = "Disaster condition neutralized or alert superseded"
 
 
 class AlertOut(BaseModel):
@@ -30,10 +39,13 @@ class AlertOut(BaseModel):
     description: str
     severity: str
     issuer: str
+    is_official: bool
     valid_from: datetime
     valid_to: datetime
     status: str
+    created_by_user_id: Optional[int] = None
     created_at: datetime
+    updated_at: Optional[datetime] = None
     areas: List[AlertAreaOut] = []
 
     model_config = ConfigDict(from_attributes=True)

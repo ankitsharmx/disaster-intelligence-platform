@@ -105,34 +105,48 @@ python -m app.db.init_db
 ```
 
 Default Accounts:
-- **Admin**: `admin@disastermgmt.gov` / `Admin@123456`
-- **Officer**: `officer_mumbai@disastermgmt.gov` / `Officer@123456` (Mumbai Suburban)
+- **System Admin**: `admin@disastermgmt.gov` / `Admin@123456`
+- **State Admin**: `state_admin_mh@disastermgmt.gov` / `StateAdmin@123456` (Maharashtra)
+- **District Officer (Mumbai Suburban)**: `officer_mumbai@disastermgmt.gov` / `Officer@123456` (District ID: 2)
+- **District Officer (Pune)**: `officer_pune@disastermgmt.gov` / `Officer@123456` (District ID: 4)
 - **Citizen**: `citizen@example.com` / `Citizen@123456`
 
 ---
 
-## 5. Geographic Resolution & Spatial Queries
+## 5. Phase 2 FastAPI Core APIs
 
-The system features microsecond point-in-polygon resolution using Shapely and PostGIS:
-```python
-from app.services.geography_service import geography_service
+### 5.1. Authentication & RBAC (`/api/v1/auth`)
+- `POST /api/v1/auth/register` — Public registration (strictly creates `CITIZEN` role).
+- `POST /api/v1/auth/provision` — Administrative provisioning of `DISTRICT_OFFICER` and `STATE_ADMIN` accounts (restricted to admins).
+- `POST /api/v1/auth/login` — Issues JWT bearer access token with embedded user role and district jurisdiction.
+- `GET /api/v1/auth/me` — Authenticated profile.
 
-# Inside Mumbai City
-district = geography_service.resolve_district(lat=18.9300, lon=72.8250)
-print(district["name"])  # 'Mumbai City'
+### 5.2. Overview & Location Services (`/api/v1/locations` & `/api/v1/overview`)
+- `GET /api/v1/locations/states` — List operational states.
+- `GET /api/v1/locations/districts` — List districts with boundary metadata and centroids.
+- `GET /api/v1/locations/resolve?latitude=...&longitude=...` — Point-in-polygon resolution to district.
+- `GET /api/v1/overview?district_id=...` — Unified district situation summary uniting weather/earthquake/fire observations, active alerts, composite risk scores, localized safety guidance, and data source health indicators.
 
-# Outside supported bounds
-out_of_bounds = geography_service.resolve_district(lat=28.6139, lon=77.2090)
-print(out_of_bounds)     # None
-```
+### 5.3. Alert Management Lifecycle (`/api/v1/alerts`)
+- `POST /api/v1/alerts` / `POST /api/v1/alerts/draft` — Issue or draft alerts. District officers are strictly barred (HTTP 403) from alerting districts outside their jurisdiction.
+- `POST /api/v1/alerts/{id}/issue` — Transition draft to active.
+- `POST /api/v1/alerts/{id}/cancel` — Cancel active alert with audit reason.
+- `GET /api/v1/alerts/active` — Active public alerts.
 
-Or via API:
-```http
-POST /api/v1/locations/resolve-district
-Content-Type: application/json
+### 5.4. Incident Reporting & Verification Workflow (`/api/v1/reports` & `/api/v1/officer`)
+- `POST /api/v1/reports` — Citizen incident reporting with non-blocking background intelligence (duplicate detection, scoring).
+- `POST /api/v1/reports/{id}/media` — Upload evidence files (JPEG, PNG, MP4, PDF, max 10MB).
+- `GET /api/v1/reports/my` — Citizen's own submission history.
+- `GET /api/v1/officer/queue?district_id=...` — Officer review queue (strictly scoped to officer's assigned district).
+- `POST /api/v1/officer/reports/{id}/review` — Review decision (`verified`, `rejected`, `resolved`).
+- `POST /api/v1/officer/reports/{id}/reopen` — Reopening lifecycle with justification notes.
 
-{"latitude": 19.1190, "longitude": 72.8465}
-```
+### 5.5. Public Map Publication Security (`/api/v1/map`)
+- `GET /api/v1/map/layers?district_id=...` — Unified GeoJSON layers for boundaries, facilities, and verified incidents.
+- **Publication Rule**: Unverified and rejected reports are **strictly excluded** from public map feeds to prevent panic and misinformation.
+
+### 5.6. Audit Logging (`/api/v1/audit`)
+- `GET /api/v1/audit/events` — Immutable administrative event log recording all state mutations (restricted to `STATE_ADMIN` and `SYSTEM_ADMIN`).
 
 ---
 
@@ -156,11 +170,11 @@ python -m app.workers.replay_worker --scenario monsoon_flood_scenario.json --spe
 
 ---
 
-## 7. Running Tests
+## 8. Running Tests
 
 Run the automated test suite with coverage:
 ```bash
 $env:PYTHONPATH="backend"
 pytest -v
 ```
-All 17 tests covering adapters, geographic resolution, intelligence modules, replay lifecycle, and API endpoints are verified and passing.
+All 23 tests covering data adapters, geographic resolution, intelligence modules, replay lifecycle, 4-role RBAC, overview APIs, alert management, incident submission and review lifecycle, and audit logs are verified and passing.

@@ -1,26 +1,34 @@
-from typing import Dict, Any, List
-from fastapi import APIRouter, Depends
+from typing import Dict, Any, List, Optional
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
 from app.db.session import get_db
 from app.models.geography import District, Facility
-from app.models.report import CitizenReport
-from app.models.hazard import HazardObservation
+from app.models.report import CitizenReport, ReportStatus
 
 router = APIRouter(prefix="/map", tags=["Map Data & GeoJSON Layers"])
 
 
 @router.get("/layers")
-async def get_map_layers(db: AsyncSession = Depends(get_db)) -> Dict[str, Any]:
+async def get_map_layers(
+    district_id: Optional[int] = Query(None, description="Optional district filter"),
+    db: AsyncSession = Depends(get_db),
+) -> Dict[str, Any]:
     """
-    Returns unified GeoJSON FeatureCollections optimized for Leaflet rendering:
-    - boundaries: District polygon boundaries
-    - facilities: Hospitals, shelters, police, and fire stations
-    - incidents: Verified citizen reports
+    Returns unified GeoJSON FeatureCollections for Leaflet map views:
+    - boundaries: Administrative district polygons
+    - facilities: Critical infrastructure (hospitals, shelters, police, fire stations)
+    - incidents: VERIFIED citizen reports only.
+    
+    CRITICAL SECURITY & PUBLICATION RULE:
+    Public map endpoints strictly exclude unverified or rejected incident reports.
     """
     # 1. District boundaries
-    d_res = await db.execute(select(District))
+    d_q = select(District)
+    if district_id:
+        d_q = d_q.filter(District.id == district_id)
+    d_res = await db.execute(d_q)
     districts = d_res.scalars().all()
     boundary_features = []
     for d in districts:
@@ -38,7 +46,10 @@ async def get_map_layers(db: AsyncSession = Depends(get_db)) -> Dict[str, Any]:
             })
 
     # 2. Facilities
-    f_res = await db.execute(select(Facility))
+    f_q = select(Facility)
+    if district_id:
+        f_q = f_q.filter(Facility.district_id == district_id)
+    f_res = await db.execute(f_q)
     facilities = f_res.scalars().all()
     facility_features = []
     for f in facilities:
@@ -59,10 +70,11 @@ async def get_map_layers(db: AsyncSession = Depends(get_db)) -> Dict[str, Any]:
             },
         })
 
-    # 3. Active Incident Reports
-    r_res = await db.execute(
-        select(CitizenReport).filter(CitizenReport.status.in_(["submitted", "verified"])).limit(100)
-    )
+    # 3. Public Incidents (STRICTLY VERIFIED ONLY)
+    r_q = select(CitizenReport).filter(CitizenReport.status == ReportStatus.VERIFIED).limit(200)
+    if district_id:
+        r_q = r_q.filter(CitizenReport.district_id == district_id)
+    r_res = await db.execute(r_q)
     reports = r_res.scalars().all()
     report_features = []
     for r in reports:
@@ -75,7 +87,6 @@ async def get_map_layers(db: AsyncSession = Depends(get_db)) -> Dict[str, Any]:
                 "description": r.description,
                 "status": r.status,
                 "confidence_score": r.confidence_score,
-                "is_duplicate": r.is_duplicate,
                 "created_at": r.created_at.isoformat() if r.created_at else None,
             },
             "geometry": {

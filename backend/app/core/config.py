@@ -22,8 +22,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 1 day
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/disaster_mgmt"
-    SYNC_DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/disaster_mgmt"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5433/disaster_mgmt"
+    SYNC_DATABASE_URL: str = "postgresql+psycopg2://postgres:postgres@localhost:5433/disaster_mgmt"
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"

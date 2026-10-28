@@ -2,13 +2,14 @@ import asyncio
 import json
 import logging
 from pathlib import Path
-from shapely.geometry import shape
+from shapely.geometry import shape, Point
 from geoalchemy2.shape import from_shape
 from sqlalchemy import select
 
 from app.db.session import engine, AsyncSessionLocal
 from app.db.base import Base
 from app.core.security import get_password_hash
+from app.core.roles import Role
 from app.models import (
     State,
     District,
@@ -57,7 +58,6 @@ async def seed_geography(session):
             existing = await session.execute(select(District).filter_by(id=props["id"]))
             if not existing.scalar_one_or_none():
                 shapely_geom = shape(geom_data)
-                # Convert shapely geometry to GeoAlchemy geometry element with SRID 4326
                 geo_elem = from_shape(shapely_geom, srid=4326)
 
                 district = District(
@@ -83,7 +83,6 @@ async def seed_geography(session):
         for fac_data in facilities_data:
             existing = await session.execute(select(Facility).filter_by(name=fac_data["name"]))
             if not existing.scalar_one_or_none():
-                from shapely.geometry import Point
                 pt = Point(fac_data["longitude"], fac_data["latitude"])
                 geo_point = from_shape(pt, srid=4326)
 
@@ -104,45 +103,77 @@ async def seed_geography(session):
 
 
 async def seed_users(session):
-    """Seed default administrative, officer, and citizen accounts."""
+    """Seed accounts representing all 4 documented roles."""
     default_users = [
+        # 1. System Administrator: Global access across all states and districts
         {
             "email": "admin@disastermgmt.gov",
             "full_name": "System Administrator",
             "password": get_password_hash("Admin@123456"),
-            "role": "admin",
+            "role": Role.SYSTEM_ADMIN.value,
             "assigned_district_id": None,
+            "assigned_state_id": None,
         },
+        # 2. State Administrator: State of Maharashtra (State ID 1)
+        {
+            "email": "state_admin_mh@disastermgmt.gov",
+            "full_name": "Maharashtra State Disaster Director",
+            "password": get_password_hash("StateAdmin@123456"),
+            "role": Role.STATE_ADMIN.value,
+            "assigned_district_id": None,
+            "assigned_state_id": 1,
+        },
+        # 3. District Officer: Mumbai Suburban (District ID 2)
         {
             "email": "officer_mumbai@disastermgmt.gov",
-            "full_name": "Disaster Response Officer (Mumbai)",
+            "full_name": "Disaster Response Officer (Mumbai Suburban)",
             "password": get_password_hash("Officer@123456"),
-            "role": "officer",
-            "assigned_district_id": 2,  # Mumbai Suburban
+            "role": Role.DISTRICT_OFFICER.value,
+            "assigned_district_id": 2,
+            "assigned_state_id": 1,
         },
+        # 4. District Officer: Pune (District ID 4)
+        {
+            "email": "officer_pune@disastermgmt.gov",
+            "full_name": "Disaster Response Officer (Pune)",
+            "password": get_password_hash("Officer@123456"),
+            "role": Role.DISTRICT_OFFICER.value,
+            "assigned_district_id": 4,
+            "assigned_state_id": 1,
+        },
+        # 5. Citizen
         {
             "email": "citizen@example.com",
             "full_name": "Aarav Sharma",
             "password": get_password_hash("Citizen@123456"),
-            "role": "citizen",
+            "role": Role.CITIZEN.value,
             "assigned_district_id": None,
+            "assigned_state_id": None,
         },
     ]
 
     for u_data in default_users:
         existing = await session.execute(select(User).filter_by(email=u_data["email"]))
-        if not existing.scalar_one_or_none():
+        u = existing.scalar_one_or_none()
+        if not u:
             user = User(
                 email=u_data["email"],
                 full_name=u_data["full_name"],
                 hashed_password=u_data["password"],
                 role=u_data["role"],
                 assigned_district_id=u_data["assigned_district_id"],
+                assigned_state_id=u_data.get("assigned_state_id"),
                 is_active=True,
             )
             session.add(user)
+        else:
+            # Update role and assignments if existing
+            u.role = u_data["role"]
+            u.assigned_district_id = u_data["assigned_district_id"]
+            u.assigned_state_id = u_data.get("assigned_state_id")
+            session.add(u)
     await session.flush()
-    logger.info("Default users seeded.")
+    logger.info("Users for all 4 roles seeded.")
 
 
 async def seed_awareness(session):

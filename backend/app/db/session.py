@@ -1,6 +1,25 @@
 from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.ext.compiler import compiles
+from geoalchemy2 import Geometry
+from geoalchemy2.admin import select_dialect
+import geoalchemy2.admin.dialects.sqlite as sqlite_admin
 from app.core.config import settings
+
+# Graceful SQLite compatibility: compile Geometry as BLOB and disable spatialite extensions on SQLite
+@compiles(Geometry, "sqlite")
+def compile_geometry_sqlite(type_, compiler, **kw):
+    return "BLOB"
+
+
+sqlite_admin.before_create = lambda *args, **kwargs: None
+sqlite_admin.after_create = lambda *args, **kwargs: None
+sqlite_admin.before_drop = lambda *args, **kwargs: None
+sqlite_admin.after_drop = lambda *args, **kwargs: None
+
+Geometry.bind_expression = lambda self, bindvalue: bindvalue
+Geometry.column_expression = lambda self, col: col
+Geometry.result_processor = lambda self, dialect, coltype: (lambda value: value)
 
 # Engine setup
 engine = create_async_engine(

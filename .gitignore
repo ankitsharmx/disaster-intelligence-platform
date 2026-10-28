@@ -46,3 +46,7 @@ htmlcov/
 node_modules/
 .next/
 out/
+
+# Media and Uploads
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep

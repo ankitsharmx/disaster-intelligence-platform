@@ -1,10 +1,11 @@
-from typing import List, Optional
-from fastapi import APIRouter, Depends, Query, HTTPException
+from typing import List, Optional, Dict, Any
+from fastapi import APIRouter, Depends, Query, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, func
+from sqlalchemy.orm import selectinload
 
 from app.db.session import get_db
-from app.models.geography import District, Facility, State
+from app.models.geography import State, District, Facility
 from app.schemas.geography import (
     DistrictResolveRequest,
     DistrictResolveResponse,
@@ -16,13 +17,47 @@ from app.services.geography_service import geography_service, GeographyService
 router = APIRouter(prefix="/locations", tags=["Locations & Geography"])
 
 
-@router.post("/resolve-district", response_model=DistrictResolveResponse)
-async def resolve_district_endpoint(coords: DistrictResolveRequest, db: AsyncSession = Depends(get_db)):
+@router.get("/states")
+async def list_states(db: AsyncSession = Depends(get_db)):
+    """Retrieves all registered states and count of districts."""
+    query = select(State).options(selectinload(State.districts))
+    res = await db.execute(query)
+    states = res.scalars().all()
+    return [
+        {
+            "id": s.id,
+            "name": s.name,
+            "code": s.code,
+            "districts_count": len(s.districts),
+            "created_at": s.created_at.isoformat() if s.created_at else None,
+        }
+        for s in states
+    ]
+
+
+@router.get("/districts", response_model=List[DistrictOut])
+async def list_districts(
+    state_id: Optional[int] = Query(None, description="Filter districts by state ID"),
+    db: AsyncSession = Depends(get_db),
+):
+    """Retrieves administrative districts with center coordinates and boundary polygons."""
+    query = select(District)
+    if state_id:
+        query = query.filter(District.state_id == state_id)
+    result = await db.execute(query)
+    return result.scalars().all()
+
+
+@router.get("/resolve", response_model=DistrictResolveResponse)
+async def resolve_district_get(
+    latitude: float = Query(..., description="Latitude coordinate"),
+    longitude: float = Query(..., description="Longitude coordinate"),
+):
     """
-    Resolves geographic coordinates (latitude, longitude) to the administrative district.
-    Uses high-speed spatial point-in-polygon resolution.
+    GET coordinate-to-district resolution endpoint.
+    Determines administrative district containment using fast point-in-polygon evaluation.
     """
-    res = geography_service.resolve_district(coords.latitude, coords.longitude)
+    res = geography_service.resolve_district(latitude, longitude)
     if res:
         return {"found": True, "district": res, "message": f"Resolved to {res.get('name')}"}
     return {
@@ -32,10 +67,16 @@ async def resolve_district_endpoint(coords: DistrictResolveRequest, db: AsyncSes
     }
 
 
-@router.get("/districts", response_model=List[DistrictOut])
-async def list_districts(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(District))
-    return result.scalars().all()
+@router.post("/resolve", response_model=DistrictResolveResponse)
+async def resolve_district_post(coords: DistrictResolveRequest):
+    """POST coordinate-to-district resolution endpoint."""
+    return await resolve_district_get(coords.latitude, coords.longitude)
+
+
+@router.post("/resolve-district", response_model=DistrictResolveResponse, deprecated=True)
+async def resolve_district_legacy(coords: DistrictResolveRequest):
+    """Legacy compatibility endpoint."""
+    return await resolve_district_get(coords.latitude, coords.longitude)
 
 
 @router.get("/facilities", response_model=List[FacilityOut])
@@ -61,7 +102,6 @@ async def get_nearest_facilities(
     limit: int = Query(5, ge=1, le=20),
     db: AsyncSession = Depends(get_db),
 ):
-    """Computes nearest emergency facilities sorted by great-circle distance."""
     query = select(Facility)
     if category:
         query = query.filter(Facility.category == category)
