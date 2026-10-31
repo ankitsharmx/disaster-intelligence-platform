@@ -1,0 +1,2083 @@
+{
+  "imd_daily_rainfall": {
+    "dataset_id": "imd_daily_rainfall",
+    "dataset_name": "Rainfall DistrictWise Daily IMD",
+    "hazard_category": "rainfall",
+    "source_agency": "India Meteorological Department (NWDP)",
+    "source_url": "https://nwdp.nwic.gov.in/dataset/rainfall-daily-imd",
+    "data_classification": "Historical Observations",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 2,
+    "total_bytes": 9133663,
+    "files": [
+      {
+        "filename": "rainfall_districtwise_daily_imd.csv",
+        "format": "CSV",
+        "size_bytes": 8622956,
+        "status": "EXISTS_VALID",
+        "sha256": "b436b43fad173409de55a5095486127af8a5051eacbc6992823bf52109f80cf2",
+        "validation": {
+          "valid": true,
+          "row_count": 104753,
+          "column_count": 22,
+          "columns": [
+            "State",
+            "District",
+            "Date",
+            "Daily Actual",
+            "Daily Normal",
+            "Daily Departure Per",
+            "Daily Category",
+            "Week Date",
+            "Weekly \nActual",
+            "Weekly Normal",
+            "Weekly Departure Per",
+            "Weekly Category",
+            "Cumulative Date",
+            "Cumulative Actual",
+            "Cumulative Normal",
+            "Cumulative Departue Per",
+            "Cumulative \nCategory",
+            "Monthly Date",
+            "Monthly Acutual",
+            "Monthly Normal"
+          ],
+          "date_columns": [
+            "Date",
+            "Week Date",
+            "Cumulative Date",
+            "Monthly Date",
+            "Monthly Acutual",
+            "Monthly Normal",
+            "Monthly \nDeparture Per",
+            "Monthly Category"
+          ],
+          "coordinate_columns": [
+            "Daily Actual",
+            "Daily Normal",
+            "Daily Departure Per",
+            "Daily Category",
+            "Weekly \nActual",
+            "Weekly Normal",
+            "Weekly Departure Per",
+            "Weekly Category",
+            "Cumulative Date",
+            "Cumulative Actual",
+            "Cumulative Normal",
+            "Cumulative Departue Per",
+            "Cumulative \nCategory",
+            "Monthly Date",
+            "Monthly Acutual",
+            "Monthly Normal",
+            "Monthly \nDeparture Per",
+            "Monthly Category"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "rainfall_statewise_daily_imd.csv",
+        "format": "CSV",
+        "size_bytes": 510707,
+        "status": "EXISTS_VALID",
+        "sha256": "40b3ee75b70e84e9359d0122dfd14c426cb5bee60c974d0856c6b72bd3b2d7f6",
+        "validation": {
+          "valid": true,
+          "row_count": 10436,
+          "column_count": 21,
+          "columns": [
+            "State",
+            "Date",
+            "Daily Actual",
+            "Daily Normal",
+            "Daily Departure Per",
+            "Daily Category",
+            "Week Date",
+            "Weekly Actual",
+            "Weekly \nNormal",
+            "Weekly Departure Per",
+            "Weekly Category",
+            "Cumulative Date",
+            "Cumulative \nActual",
+            "Cumulative Normal",
+            "Cumulative Departue Per",
+            "Cumulative Category",
+            "Monthly Date",
+            "Monthly Acutual",
+            "Monthly Normal",
+            "Monthly Departure Per"
+          ],
+          "date_columns": [
+            "Date",
+            "Week Date",
+            "Cumulative Date",
+            "Monthly Date",
+            "Monthly Acutual",
+            "Monthly Normal",
+            "Monthly Departure Per",
+            "Monthly Category"
+          ],
+          "coordinate_columns": [
+            "Daily Actual",
+            "Daily Normal",
+            "Daily Departure Per",
+            "Daily Category",
+            "Weekly Actual",
+            "Weekly \nNormal",
+            "Weekly Departure Per",
+            "Weekly Category",
+            "Cumulative Date",
+            "Cumulative \nActual",
+            "Cumulative Normal",
+            "Cumulative Departue Per",
+            "Cumulative Category",
+            "Monthly Date",
+            "Monthly Acutual",
+            "Monthly Normal",
+            "Monthly Departure Per",
+            "Monthly Category"
+          ],
+          "sample_nulls": 0
+        }
+      }
+    ]
+  },
+  "imd_gridded_rainfall_netcdf": {
+    "dataset_id": "imd_gridded_rainfall_netcdf",
+    "dataset_name": "IMD Gridded Daily Rainfall 0.25deg (2024)",
+    "hazard_category": "rainfall",
+    "source_agency": "India Meteorological Department (IMD Pune)",
+    "source_url": "https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html",
+    "data_classification": "Historical Observations",
+    "license": "IMD Public Meteorological Data",
+    "files_count": 5,
+    "total_bytes": 127298528,
+    "files": [
+      {
+        "filename": "ind2024_rfp25.nc",
+        "format": "NETCDF",
+        "size_bytes": 25501532,
+        "status": "EXISTS_VALID",
+        "sha256": "1ef02aeba5694dbb57a6cca23a3c2cc11740affb185137c1eacbeab59893228a",
+        "validation": {
+          "valid": true,
+          "dimensions": {
+            "TIME": 366,
+            "LATITUDE": 129,
+            "LONGITUDE": 135
+          },
+          "variables": [
+            "RAINFALL"
+          ],
+          "coordinates": [
+            "LONGITUDE",
+            "LATITUDE",
+            "TIME"
+          ],
+          "time_coverage": null,
+          "units": {
+            "RAINFALL": "mm"
+          }
+        }
+      },
+      {
+        "filename": "ind2023_rfp25.nc",
+        "format": "NETCDF",
+        "size_bytes": 25431832,
+        "status": "EXISTS_VALID",
+        "sha256": "1fa0cbcb56769fd3cd2702e36dc3ee1b81b74755b77c7f058c70dfc3afb82831",
+        "validation": {
+          "valid": true,
+          "dimensions": {
+            "TIME": 365,
+            "LATITUDE": 129,
+            "LONGITUDE": 135
+          },
+          "variables": [
+            "RAINFALL"
+          ],
+          "coordinates": [
+            "LONGITUDE",
+            "LATITUDE",
+            "TIME"
+          ],
+          "time_coverage": null,
+          "units": {
+            "RAINFALL": "mm"
+          }
+        }
+      },
+      {
+        "filename": "ind2022_rfp25.nc",
+        "format": "NETCDF",
+        "size_bytes": 25431832,
+        "status": "EXISTS_VALID",
+        "sha256": "83ae0d4e48f3a408eec3b54844476d406faf70928dc13c79f0bd085e3b0224b8",
+        "validation": {
+          "valid": true,
+          "dimensions": {
+            "TIME": 365,
+            "LATITUDE": 129,
+            "LONGITUDE": 135
+          },
+          "variables": [
+            "RAINFALL"
+          ],
+          "coordinates": [
+            "LONGITUDE",
+            "LATITUDE",
+            "TIME"
+          ],
+          "time_coverage": null,
+          "units": {
+            "RAINFALL": "mm"
+          }
+        }
+      },
+      {
+        "filename": "ind2021_rfp25.nc",
+        "format": "NETCDF",
+        "size_bytes": 25431832,
+        "status": "EXISTS_VALID",
+        "sha256": "fb0f291fa7e214a7811023a9309cead67233b6b4e0bfcc5b277643f976f68374",
+        "validation": {
+          "valid": true,
+          "dimensions": {
+            "TIME": 365,
+            "LATITUDE": 129,
+            "LONGITUDE": 135
+          },
+          "variables": [
+            "RAINFALL"
+          ],
+          "coordinates": [
+            "LONGITUDE",
+            "LATITUDE",
+            "TIME"
+          ],
+          "time_coverage": null,
+          "units": {
+            "RAINFALL": "mm"
+          }
+        }
+      },
+      {
+        "filename": "ind2020_rfp25.nc",
+        "format": "NETCDF",
+        "size_bytes": 25501500,
+        "status": "EXISTS_VALID",
+        "sha256": "2e567f0f71f3a1936ba11d61a0214fc3927c7b969ee5669d14959aa0b6b026dc",
+        "validation": {
+          "valid": true,
+          "dimensions": {
+            "TIME": 366,
+            "LATITUDE": 129,
+            "LONGITUDE": 135
+          },
+          "variables": [
+            "RAINFALL"
+          ],
+          "coordinates": [
+            "LONGITUDE",
+            "LATITUDE",
+            "TIME"
+          ],
+          "time_coverage": null,
+          "units": {
+            "RAINFALL": "mm"
+          }
+        }
+      }
+    ]
+  },
+  "open_meteo_historical_weather": {
+    "dataset_id": "open_meteo_historical_weather",
+    "dataset_name": "Open-Meteo Weather Amritsar (2015-2024)",
+    "hazard_category": "weather",
+    "source_agency": "Open-Meteo (Copernicus ERA5 / ERA5-Land)",
+    "source_url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "data_classification": "Modelled / Reanalysis",
+    "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "files_count": 23,
+    "total_bytes": 98540559,
+    "files": [
+      {
+        "filename": "open_meteo_weather_Amritsar_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4276833,
+        "status": "EXISTS_VALID",
+        "sha256": "7649533ad1a778ec28da8aee7793bab8c6d8c3a60b23ab6b85a045a893202812",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Barnala_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4284178,
+        "status": "EXISTS_VALID",
+        "sha256": "84fabd356dac49d24dee35ba0455fb7c34f730a1533a52b359d67e1e8a39113f",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Bathinda_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4285234,
+        "status": "EXISTS_VALID",
+        "sha256": "854e56d7235f09fb76d59679e32da0d5773222186f445e8486e3fa5a3135e887",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Faridkot_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4282925,
+        "status": "EXISTS_VALID",
+        "sha256": "3adac977ec6451e99a4839dd98137d9b376724f3d3c8efa6076399215bf6b23b",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Fatehgarh_Sahib_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4301206,
+        "status": "EXISTS_VALID",
+        "sha256": "383a58c05c9c30d34e493f163e0a856bd64a1f123533da40404e33b743f883dc",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Fazilka_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4283060,
+        "status": "EXISTS_VALID",
+        "sha256": "8a8e8443989c8e3ffd72143fbcef411eb1b92ebb5b774e52970ed4d508d9503f",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Firozpur_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4276646,
+        "status": "EXISTS_VALID",
+        "sha256": "8f53454b55aa8a94e9548b0dd49e74db78e4a7eb6718598d91095da1521f9380",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Gurdaspur_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4268866,
+        "status": "EXISTS_VALID",
+        "sha256": "91cb7038d83c2eaadbe0f9a4dab7a7e0a83d3c3efcd493a10729442ce30370d3",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Hoshiarpur_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4277175,
+        "status": "EXISTS_VALID",
+        "sha256": "e35ca198b0b89ff4b8591fb9439b49485a3081fab3d72d0fd0f11f46e1253495",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Jalandhar_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4286523,
+        "status": "EXISTS_VALID",
+        "sha256": "a1b19eadd50a83ace519a21c1579e176f0b188b655f5d0d6f3202582969e0f48",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Kapurthala_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4279437,
+        "status": "EXISTS_VALID",
+        "sha256": "230cf6a0086e91c1235eea3ecc671e6a05731177be2d30b47c1b8fda3af2655e",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Ludhiana_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4291965,
+        "status": "EXISTS_VALID",
+        "sha256": "e439eab98062dbb5482b47efb9cafa6e91b965a940d49b3e18d66caf9e2a6db4",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Malerkotla_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4289125,
+        "status": "EXISTS_VALID",
+        "sha256": "174bf00155d5df1ec936a90c98ae03fdbeb59c4857dce532ada7b93f07fb235f",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Mansa_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4287631,
+        "status": "EXISTS_VALID",
+        "sha256": "ae247593bb1d6ee7b0a0940ba6b580641a72bf6e2c23604e79d568ad13ff4c5c",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Moga_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4282488,
+        "status": "EXISTS_VALID",
+        "sha256": "afe33f129d18a0abfb8e9dd26530dd7fdc40e5c89fc6e2bfc47a9b9dd7fdc775",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Muktsar_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4283534,
+        "status": "EXISTS_VALID",
+        "sha256": "cfeea6f5714eac8443facf68e7d1e78257b8ff554e3251b1ec224777ff1e8ad6",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Pathankot_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4255712,
+        "status": "EXISTS_VALID",
+        "sha256": "892880794222d27f7a24d7db570ddd09a37f73fc9fc5b99e7f09b696fd7c08c3",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Patiala_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4297755,
+        "status": "EXISTS_VALID",
+        "sha256": "3652f35706a3a9a3e1eb3d26e4de162df7fae8f27dd1bf899340b270d227eeac",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Rupnagar_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4286234,
+        "status": "EXISTS_VALID",
+        "sha256": "b8b8a2617b9c5d9335ef80d99e80ce0beb677748b17f284a696868d413ced5ac",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_SAS_Nagar_Mohali_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4310151,
+        "status": "EXISTS_VALID",
+        "sha256": "cb8b6b5833ade1def0686a043621bed1a4f7ad23e44e32bd3c7993d0641be78e",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_SBS_Nagar_Nawanshahr_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4287532,
+        "status": "EXISTS_VALID",
+        "sha256": "2d36e4ccf7bb0ec6f007b14e2122c8201e292bfc2f02426814951b11f3434826",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Sangrur_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4288694,
+        "status": "EXISTS_VALID",
+        "sha256": "3c8ac53a41375541fa766a657c6516e3c7dd3d1b0a35a2c611e7c0a9846b538b",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "open_meteo_weather_Tarn_Taran_2015_2024.csv",
+        "format": "CSV",
+        "size_bytes": 4277655,
+        "status": "EXISTS_VALID",
+        "sha256": "9ffac87d7045d3a1d8d1d1103666fd9170b939fd039def0175d2b7389a8e0f82",
+        "validation": {
+          "valid": true,
+          "row_count": 87672,
+          "column_count": 8,
+          "columns": [
+            "time",
+            "temperature_2m (°C)",
+            "relative_humidity_2m (%)",
+            "precipitation (mm)",
+            "rain (mm)",
+            "wind_speed_10m (km/h)",
+            "wind_direction_10m (°)",
+            "surface_pressure (hPa)"
+          ],
+          "date_columns": [
+            "time"
+          ],
+          "coordinate_columns": [
+            "relative_humidity_2m (%)"
+          ],
+          "sample_nulls": 0
+        }
+      }
+    ]
+  },
+  "punjab_river_water_level": {
+    "dataset_id": "punjab_river_water_level",
+    "dataset_name": "River Water Level Telemetry Hourly Punjab SW (1991-2020)",
+    "hazard_category": "flood",
+    "source_agency": "Punjab Surface Water Department (NWDP)",
+    "source_url": "https://nwdp.nwic.gov.in/dataset/river-water-level-telemetry-hourly-punjab-surface-water-department",
+    "data_classification": "Historical Observations",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 3,
+    "total_bytes": 6323662,
+    "files": [
+      {
+        "filename": "rwl_tele_hr_punjab-sw_999_1991_2020.csv",
+        "format": "CSV",
+        "size_bytes": 526,
+        "status": "EXISTS_VALID",
+        "sha256": "1fac7cc5d2e440ce8f27695965ace04177ed0b273a0f586710ab69b411bc0126",
+        "validation": {
+          "valid": true,
+          "row_count": 2,
+          "column_count": 23,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Is_DischargeDataAvailable",
+            "RL_of_zeroGauge"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "River Water Level Telemetry Hourly (meter)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "rwl_tel_hr_punjab_sw_999_2021_2025.csv",
+        "format": "CSV",
+        "size_bytes": 5893216,
+        "status": "EXISTS_VALID",
+        "sha256": "fb3593bd2053aec3f6b45858aee78a49bc14b91e6f90ff2ccd9b15146304c769",
+        "validation": {
+          "valid": true,
+          "row_count": 46840,
+          "column_count": 23,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Is_DischargeDataAvailable",
+            "RL_of_zeroGauge"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "River Water Level Telemetry Hourly (meter)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "rwl_tel_hr_punjab_sw_999_2026_2030.csv",
+        "format": "CSV",
+        "size_bytes": 429920,
+        "status": "EXISTS_VALID",
+        "sha256": "19f7b40e66375de424684e111a307fb7b7d3a3bb9fd1c6acea1de86000433cd9",
+        "validation": {
+          "valid": true,
+          "row_count": 3426,
+          "column_count": 23,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Is_DischargeDataAvailable",
+            "RL_of_zeroGauge"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "River Water Level Telemetry Hourly (meter)"
+          ],
+          "sample_nulls": 0
+        }
+      }
+    ]
+  },
+  "punjab_river_discharge": {
+    "dataset_id": "punjab_river_discharge",
+    "dataset_name": "River Discharge Punjab_SW Punjab (1970 - 2025) Telemetry Hourly",
+    "hazard_category": "flood",
+    "source_agency": "Punjab Surface Water Department (NWDP)",
+    "source_url": "https://nwdp.nwic.gov.in/en/dataset/river-discharge-telemetry-hourly-punjab-surface-water-department",
+    "data_classification": "Historical Observations",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 2,
+    "total_bytes": 93943516,
+    "files": [
+      {
+        "filename": "river_discharge_tele_hr_punjab_sw_pb_1970_2025.csv",
+        "format": "CSV",
+        "size_bytes": 84169919,
+        "status": "EXISTS_VALID",
+        "sha256": "4feae1c12a9817e84861d69f354deb3c14f6f4ce9d317b0076b49495ec0eaff1",
+        "validation": {
+          "valid": true,
+          "row_count": 624300,
+          "column_count": 20,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Data Acquisition Time",
+            "Telemetry Hourly River Water Discharge (m3/sec)"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "Telemetry Hourly River Water Discharge (m3/sec)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "river_discharge_tele_hr_punjab_sw_pb_2026_2030.csv",
+        "format": "CSV",
+        "size_bytes": 9773597,
+        "status": "EXISTS_VALID",
+        "sha256": "f9f8f488c680ef4d20f19ebed103fc9ba41ea49e78609fdbba2d6b65dff9e916",
+        "validation": {
+          "valid": true,
+          "row_count": 77456,
+          "column_count": 20,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Data Acquisition Time",
+            "Telemetry Hourly River Water Discharge (m3/sec)"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "Telemetry Hourly River Water Discharge (m3/sec)"
+          ],
+          "sample_nulls": 0
+        }
+      }
+    ]
+  },
+  "cwc_river_discharge_punjab": {
+    "dataset_id": "cwc_river_discharge_punjab",
+    "dataset_name": "CWC River Discharge Punjab (Absence Recorded)",
+    "hazard_category": "flood",
+    "source_agency": "Central Water Commission (CWC - NWDP)",
+    "source_url": "https://nwdp.nwic.gov.in/dataset/river-discharge-manual-dailly-central-water-commission-cwc",
+    "data_classification": "Historical Observations",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 1,
+    "total_bytes": 0,
+    "files": [
+      {
+        "filename": "NONE",
+        "format": "CSV",
+        "size_bytes": 0,
+        "status": "UNAVAILABLE",
+        "sha256": null,
+        "validation": {}
+      }
+    ]
+  },
+  "cwc_river_discharge_neighbouring": {
+    "dataset_id": "cwc_river_discharge_neighbouring",
+    "dataset_name": "River Discharge Central Water Commission (CWC), Rajasthan (1950 - 2000) Manual Daily",
+    "hazard_category": "flood",
+    "source_agency": "Central Water Commission (CWC - NWDP)",
+    "source_url": "https://nwdp.nwic.gov.in/dataset/river-discharge-manual-dailly-central-water-commission-cwc",
+    "data_classification": "Historical Observations",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 3,
+    "total_bytes": 4595540,
+    "files": [
+      {
+        "filename": "riverdischarge_manual_daily_cwc_rj_1950_2000.csv",
+        "format": "CSV",
+        "size_bytes": 765623,
+        "status": "EXISTS_VALID",
+        "sha256": "ea5b2e2b7a0619169d4b1e583673f658793e48c8dbae3d4d3a4a9e42b98caaeb",
+        "validation": {
+          "valid": true,
+          "row_count": 5569,
+          "column_count": 20,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Data Acquisition Time",
+            "Manual Daily River Water Discharge (m3/sec)"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "Manual Daily River Water Discharge (m3/sec)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "river_discharge_manual_daily_cwc_rj_2001_2025.csv",
+        "format": "CSV",
+        "size_bytes": 3796161,
+        "status": "EXISTS_VALID",
+        "sha256": "49dea91b89d729c6e59ddb11f4d9a541faa8b90bac662db8e1009f003c637647",
+        "validation": {
+          "valid": true,
+          "row_count": 27008,
+          "column_count": 20,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Data Acquisition Time",
+            "Manual Daily River Water Discharge (m3/sec)"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "Manual Daily River Water Discharge (m3/sec)"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "river_discharge_manual_daily_cwc_rj_2026_2030.csv",
+        "format": "CSV",
+        "size_bytes": 33756,
+        "status": "EXISTS_VALID",
+        "sha256": "708d3482a97503bff5c6361d64c4aeda5a9ae061f2d42f073938abf2c6655560",
+        "validation": {
+          "valid": true,
+          "row_count": 255,
+          "column_count": 20,
+          "columns": [
+            "SlNo",
+            "Station",
+            "Agency",
+            "State LGD Code",
+            "State",
+            "District LGD Code",
+            "District",
+            "Tehsil",
+            "Block",
+            "Village",
+            "River",
+            "Basin",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Local River",
+            "Latitude",
+            "Longitude",
+            "Data Acquisition Time",
+            "Manual Daily River Water Discharge (m3/sec)"
+          ],
+          "date_columns": [
+            "Data Acquisition Time"
+          ],
+          "coordinate_columns": [
+            "Agency",
+            "Tributary",
+            "Subtributary",
+            "SubSubtributary",
+            "Latitude",
+            "Longitude",
+            "Manual Daily River Water Discharge (m3/sec)"
+          ],
+          "sample_nulls": 0
+        }
+      }
+    ]
+  },
+  "iit_delhi_flood_inventory": {
+    "dataset_id": "iit_delhi_flood_inventory",
+    "dataset_name": "India Flood Inventory - India_Flood_Inventory_v3.csv",
+    "hazard_category": "flood",
+    "source_agency": "IIT Delhi / Zenodo",
+    "source_url": "https://zenodo.org/records/16994648",
+    "data_classification": "Historical Observations",
+    "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "files_count": 4,
+    "total_bytes": 1882386,
+    "files": [
+      {
+        "filename": "India_Flood_Inventory_v3.csv",
+        "format": "CSV",
+        "size_bytes": 1801579,
+        "status": "EXISTS_VALID",
+        "sha256": "ef9ab2cd0db7bf917dcc22c7cb094ec599f5013ef1b96ba525d816f26ff1b108",
+        "validation": {
+          "valid": true,
+          "row_count": 6879,
+          "column_count": 23,
+          "columns": [
+            "Unnamed: 0",
+            "UEI",
+            "Start Date",
+            "End Date",
+            "Duration(Days)",
+            "Main Cause",
+            "Location",
+            "Districts",
+            "State",
+            "Latitude",
+            "Longitude",
+            "Severity",
+            "Area Affected",
+            "Human fatality",
+            "Human injured",
+            "Human Displaced",
+            "Animal Fatality",
+            "Description of Casualties/injured",
+            "Extent of damage ",
+            "Event Source"
+          ],
+          "date_columns": [
+            "Start Date",
+            "End Date",
+            "Duration(Days)"
+          ],
+          "coordinate_columns": [
+            "Duration(Days)",
+            "Latitude",
+            "Longitude",
+            "Severity",
+            "Human fatality",
+            "Animal Fatality",
+            "Extent of damage "
+          ],
+          "sample_nulls": 1137
+        }
+      },
+      {
+        "filename": "District_FloodImpact.csv",
+        "format": "CSV",
+        "size_bytes": 19122,
+        "status": "EXISTS_VALID",
+        "sha256": "0cc7381e8153cdd34e287540e64947e4cd2e5ff46d2461581e7b6c041b3655fb",
+        "validation": {
+          "valid": true,
+          "row_count": 733,
+          "column_count": 5,
+          "columns": [
+            "Dist_Name",
+            "Human_fatality",
+            "Human_injured",
+            "Population",
+            "Mean_Flood_Duration"
+          ],
+          "date_columns": [],
+          "coordinate_columns": [
+            "Human_fatality",
+            "Population"
+          ],
+          "sample_nulls": 3
+        }
+      },
+      {
+        "filename": "District_FloodedArea.csv",
+        "format": "CSV",
+        "size_bytes": 32567,
+        "status": "EXISTS_VALID",
+        "sha256": "738d5edf8a29c70de520b3b7b8e148eb7eed2ce89bbd9f0ecacd3cbc17b07610",
+        "validation": {
+          "valid": true,
+          "row_count": 733,
+          "column_count": 4,
+          "columns": [
+            "Dist_Name",
+            "Percent_Flooded_Area",
+            "Parmanent_Water",
+            "Corrected_Percent_Flooded_Area"
+          ],
+          "date_columns": [],
+          "coordinate_columns": [],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "DFSI.csv",
+        "format": "CSV",
+        "size_bytes": 29118,
+        "status": "EXISTS_VALID",
+        "sha256": "25cb6ad0ad7b8b681ece2c99dcc6030de1debf2569f5e8e8a47a4144d90a8cac",
+        "validation": {
+          "valid": true,
+          "row_count": 745,
+          "column_count": 3,
+          "columns": [
+            "Unnamed: 0",
+            "State_Name",
+            "DFSI"
+          ],
+          "date_columns": [],
+          "coordinate_columns": [],
+          "sample_nulls": 0
+        }
+      }
+    ]
+  },
+  "usgs_earthquake_recent": {
+    "dataset_id": "usgs_earthquake_recent",
+    "dataset_name": "USGS Recent Earthquakes (All Day Feed)",
+    "hazard_category": "earthquake",
+    "source_agency": "USGS Earthquake Hazards Program",
+    "source_url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+    "data_classification": "Live Source Snapshot",
+    "license": "Public Domain (USGS)",
+    "files_count": 1,
+    "total_bytes": 131104,
+    "files": [
+      {
+        "filename": "usgs_earthquakes_recent_all_day.geojson",
+        "format": "GEOJSON",
+        "size_bytes": 131104,
+        "status": "EXISTS_VALID",
+        "sha256": "9b65ecb4eee5421940bc0c5dc924b2a3626102cf531f3dc91712aedeb77a3a29",
+        "validation": {
+          "valid": true,
+          "feature_count": 183,
+          "geometry_types": [
+            "Point"
+          ],
+          "sample_bounding_box": [
+            -61.3277,
+            -164.243,
+            68.688,
+            167.9345
+          ],
+          "crs": "EPSG:4326"
+        }
+      }
+    ]
+  },
+  "usgs_earthquake_historical": {
+    "dataset_id": "usgs_earthquake_historical",
+    "dataset_name": "USGS Historical Earthquake Catalogue (2000-2012)",
+    "hazard_category": "earthquake",
+    "source_agency": "USGS Earthquake Hazards Program",
+    "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/",
+    "data_classification": "Historical Observations",
+    "license": "Public Domain (USGS)",
+    "files_count": 2,
+    "total_bytes": 13698503,
+    "files": [
+      {
+        "filename": "usgs_earthquakes_india_2000_2012.geojson",
+        "format": "GEOJSON",
+        "size_bytes": 7930595,
+        "status": "EXISTS_VALID",
+        "sha256": "b80b1faff5eaccecb594b5878eee2cabf9b820608a011391bd6a49635f00a8b6",
+        "validation": {
+          "valid": true,
+          "feature_count": 11088,
+          "geometry_types": [
+            "Point"
+          ],
+          "sample_bounding_box": [
+            6.107,
+            68.184,
+            37.948,
+            97.957
+          ],
+          "crs": "EPSG:4326"
+        }
+      },
+      {
+        "filename": "usgs_earthquakes_india_2013_2026.geojson",
+        "format": "GEOJSON",
+        "size_bytes": 5767908,
+        "status": "EXISTS_VALID",
+        "sha256": "e367f79ac6d49b57317f9256934f77ce0e06536593bc27d40133a5aa5aa0f851",
+        "validation": {
+          "valid": true,
+          "feature_count": 8196,
+          "geometry_types": [
+            "Point"
+          ],
+          "sample_bounding_box": [
+            6.0835,
+            68.0294,
+            37.9938,
+            97.9069
+          ],
+          "crs": "EPSG:4326"
+        }
+      }
+    ]
+  },
+  "nasa_global_landslide_catalog": {
+    "dataset_id": "nasa_global_landslide_catalog",
+    "dataset_name": "NASA Global Landslide Catalog Export",
+    "hazard_category": "landslide",
+    "source_agency": "NASA Goddard Space Flight Center",
+    "source_url": "https://data.nasa.gov/dataset/global-landslide-catalog-export",
+    "data_classification": "Historical Observations",
+    "license": "NASA Open Data / Public Domain",
+    "files_count": 1,
+    "total_bytes": 8479717,
+    "files": [
+      {
+        "filename": "Global_Landslide_Catalog_Export.csv",
+        "format": "CSV",
+        "size_bytes": 8479717,
+        "status": "EXISTS_VALID",
+        "sha256": "2c4898899dd4f373c4320e121c5b655ebb5394d431fa42e57ec4828d07d48b04",
+        "validation": {
+          "valid": true,
+          "row_count": 11059,
+          "column_count": 31,
+          "columns": [
+            "source_name",
+            "source_link",
+            "event_id",
+            "event_date",
+            "event_time",
+            "event_title",
+            "event_description",
+            "location_description",
+            "location_accuracy",
+            "landslide_category",
+            "landslide_trigger",
+            "landslide_size",
+            "landslide_setting",
+            "fatality_count",
+            "injury_count",
+            "storm_name",
+            "photo_link",
+            "notes",
+            "event_import_source",
+            "event_import_id"
+          ],
+          "date_columns": [
+            "event_date",
+            "event_time",
+            "submitted_date",
+            "created_date",
+            "last_edited_date"
+          ],
+          "coordinate_columns": [
+            "location_accuracy",
+            "landslide_category",
+            "fatality_count",
+            "injury_count",
+            "country_name",
+            "country_code",
+            "admin_division_population",
+            "longitude",
+            "latitude"
+          ],
+          "sample_nulls": 560
+        }
+      }
+    ]
+  },
+  "isro_landslide_atlas": {
+    "dataset_id": "isro_landslide_atlas",
+    "dataset_name": "ISRO Landslide Atlas of India (2023)",
+    "hazard_category": "landslide",
+    "source_agency": "National Remote Sensing Centre (NRSC) / ISRO",
+    "source_url": "https://www.isro.gov.in/Landslide_Atlas_India.html",
+    "data_classification": "Historical Observations",
+    "license": "ISRO Public Report",
+    "files_count": 1,
+    "total_bytes": 11080821,
+    "files": [
+      {
+        "filename": "LandslideAtlas_new_2023.pdf",
+        "format": "PDF",
+        "size_bytes": 11080821,
+        "status": "EXISTS_VALID",
+        "sha256": "54affbd4fe2800a892bc886de18f7b3cfb740a87d724ce42c76400536de4c7a7",
+        "validation": {
+          "valid": true,
+          "page_count": 93
+        }
+      }
+    ]
+  },
+  "noaa_ibtracs_north_indian_ocean": {
+    "dataset_id": "noaa_ibtracs_north_indian_ocean",
+    "dataset_name": "NOAA IBTrACS v04r01 (ibtracs.NI.list.v04r01.csv)",
+    "hazard_category": "cyclone",
+    "source_agency": "NOAA NCEI (National Centers for Environmental Information)",
+    "source_url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+    "data_classification": "Historical Observations",
+    "license": "Public Domain (US Federal Government)",
+    "files_count": 3,
+    "total_bytes": 28638875,
+    "files": [
+      {
+        "filename": "ibtracs.NI.list.v04r01.csv",
+        "format": "CSV",
+        "size_bytes": 27895917,
+        "status": "EXISTS_VALID",
+        "sha256": "6e0dd2dde1f22c4bf03995beb21944bf5976536c747b23ba85c6d300aeab69ff",
+        "validation": {
+          "valid": true,
+          "row_count": 62886,
+          "column_count": 174,
+          "columns": [
+            "SID",
+            "SEASON",
+            "NUMBER",
+            "BASIN",
+            "SUBBASIN",
+            "NAME",
+            "ISO_TIME",
+            "NATURE",
+            "LAT",
+            "LON",
+            "WMO_WIND",
+            "WMO_PRES",
+            "WMO_AGENCY",
+            "TRACK_TYPE",
+            "DIST2LAND",
+            "LANDFALL",
+            "IFLAG",
+            "USA_AGENCY",
+            "USA_ATCF_ID",
+            "USA_LAT"
+          ],
+          "date_columns": [
+            "ISO_TIME"
+          ],
+          "coordinate_columns": [
+            "LAT",
+            "LON",
+            "WMO_AGENCY",
+            "TRACK_TYPE",
+            "USA_AGENCY",
+            "USA_LAT",
+            "USA_LON",
+            "USA_EYE",
+            "TOKYO_LAT",
+            "TOKYO_LON",
+            "TOKYO_GRADE",
+            "TOKYO_WIND",
+            "TOKYO_PRES",
+            "TOKYO_R50_DIR",
+            "TOKYO_R50_LONG",
+            "TOKYO_R50_SHORT",
+            "TOKYO_R30_DIR",
+            "TOKYO_R30_LONG",
+            "TOKYO_R30_SHORT",
+            "TOKYO_LAND",
+            "CMA_LAT",
+            "CMA_LON",
+            "HKO_LAT",
+            "HKO_LON",
+            "KMA_LAT",
+            "KMA_LON",
+            "KMA_R50_LONG",
+            "KMA_R30_LONG",
+            "NEWDELHI_LAT",
+            "NEWDELHI_LON",
+            "REUNION_LAT",
+            "REUNION_LON",
+            "REUNION_TYPE",
+            "BOM_LAT",
+            "BOM_LON",
+            "BOM_TYPE",
+            "BOM_EYE",
+            "NADI_LAT",
+            "NADI_LON",
+            "WELLINGTON_LAT",
+            "WELLINGTON_LON",
+            "DS824_LAT",
+            "DS824_LON",
+            "TD9636_LAT",
+            "TD9636_LON",
+            "TD9635_LAT",
+            "TD9635_LON",
+            "NEUMANN_LAT",
+            "NEUMANN_LON",
+            "MLC_LAT",
+            "MLC_LON"
+          ],
+          "sample_nulls": 0
+        }
+      },
+      {
+        "filename": "IBTrACS_v04r01_column_documentation.pdf",
+        "format": "PDF",
+        "size_bytes": 67666,
+        "status": "EXISTS_VALID",
+        "sha256": "b78b8d0a712408766ec76991172dd73095cf60efcfa53c4dfc8196ad170c8d34",
+        "validation": {
+          "valid": true,
+          "page_count": 9
+        }
+      },
+      {
+        "filename": "IBTrACS_version4r01_Technical_Details.pdf",
+        "format": "PDF",
+        "size_bytes": 675292,
+        "status": "EXISTS_VALID",
+        "sha256": "19a22e4debcb71f1e5745e10cd11475d081c85c67e7eccfea9f8f365172dbd6e",
+        "validation": {
+          "valid": true,
+          "page_count": 31
+        }
+      }
+    ]
+  },
+  "fsi_historical_forest_fire": {
+    "dataset_id": "fsi_historical_forest_fire",
+    "dataset_name": "FSI Historical Forest Fire Points (PUNJAB)",
+    "hazard_category": "forest_fire",
+    "source_agency": "Forest Survey of India (FSI - MoEFCC)",
+    "source_url": "https://fsiforestfire.gov.in/ArchivalData/Search",
+    "data_classification": "Historical Observations",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 1,
+    "total_bytes": 505567,
+    "files": [
+      {
+        "filename": "fsi_forest_fire_punjab_2004_2025.csv",
+        "format": "CSV",
+        "size_bytes": 505567,
+        "status": "SUCCESS",
+        "sha256": "3644dad22ee865e483b522c6ee761a3711f89e9cb2ed8bcccc9918e32999aac7",
+        "validation": {
+          "valid": true,
+          "row_count": 6795,
+          "column_count": 8,
+          "columns": [
+            "Id",
+            "Date",
+            "Sensor",
+            "Lon",
+            "Lat",
+            "State",
+            "Year",
+            "ACQTIME"
+          ],
+          "date_columns": [
+            "Date",
+            "Year",
+            "ACQTIME"
+          ],
+          "coordinate_columns": [
+            "Lon",
+            "Lat",
+            "Year"
+          ],
+          "sample_nulls": 100
+        }
+      }
+    ]
+  },
+  "nasa_firms_fire_detections": {
+    "dataset_id": "nasa_firms_fire_detections",
+    "dataset_name": "NASA FIRMS Active Fire Detections (India)",
+    "hazard_category": "forest_fire",
+    "source_agency": "NASA LANCE / FIRMS",
+    "source_url": "https://firms.modaps.eosdis.nasa.gov/",
+    "data_classification": "Historical Observations",
+    "license": "NASA Open Data Terms",
+    "files_count": 1,
+    "total_bytes": 0,
+    "files": [
+      {
+        "filename": "NONE",
+        "format": "CSV",
+        "size_bytes": 0,
+        "status": "SKIPPED_NO_API_KEY",
+        "sha256": null,
+        "validation": {}
+      }
+    ]
+  },
+  "ndma_sachet_all_india": {
+    "dataset_id": "ndma_sachet_all_india",
+    "dataset_name": "NDMA Sachet All India Alert Feed",
+    "hazard_category": "alerts",
+    "source_agency": "National Disaster Management Authority (NDMA)",
+    "source_url": "https://sachet.ndma.gov.in/CapFeed",
+    "data_classification": "Live Source Snapshot",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 1,
+    "total_bytes": 70722,
+    "files": [
+      {
+        "filename": "ndma_sachet_rss_india.xml",
+        "format": "XML",
+        "size_bytes": 70722,
+        "status": "EXISTS_VALID",
+        "sha256": "47e0cd9c5dc7820bd5c7102fa75600248d43a7e5fb32309545ea7842146ecd14",
+        "validation": {
+          "valid": true,
+          "feed_title": "All India: CAP Disaster Alert Feeds",
+          "entries_count": 100,
+          "status": 200
+        }
+      }
+    ]
+  },
+  "ndma_sachet_punjab": {
+    "dataset_id": "ndma_sachet_punjab",
+    "dataset_name": "NDMA Sachet Punjab Regional Alert Feed",
+    "hazard_category": "alerts",
+    "source_agency": "National Disaster Management Authority (NDMA)",
+    "source_url": "https://sachet.ndma.gov.in/CapFeed",
+    "data_classification": "Live Source Snapshot",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 1,
+    "total_bytes": 7620,
+    "files": [
+      {
+        "filename": "ndma_sachet_rss_punjab.xml",
+        "format": "XML",
+        "size_bytes": 7620,
+        "status": "EXISTS_VALID",
+        "sha256": "c48c8007e428736d45184f50b20e21a711ee90ce81daf2d5b2bdc4d4c1a80c75",
+        "validation": {
+          "valid": true,
+          "feed_title": "Punjab: CAP Disaster Alert Feeds",
+          "entries_count": 10,
+          "status": 200
+        }
+      }
+    ]
+  },
+  "nwdp_district_boundaries": {
+    "dataset_id": "nwdp_district_boundaries",
+    "dataset_name": "District NWIC",
+    "hazard_category": "geography",
+    "source_agency": "National Water Informatics Centre (NWIC - NWDP)",
+    "source_url": "https://nwdp.nwic.gov.in/dataset/district-boundary",
+    "data_classification": "Static Geographic Reference",
+    "license": "Government Open Data License - India (GODL)",
+    "files_count": 3,
+    "total_bytes": 159693836,
+    "files": [
+      {
+        "filename": "district_nwic.kmz",
+        "format": "KML",
+        "size_bytes": 49845604,
+        "status": "EXISTS_VALID",
+        "sha256": "e86ad469f7b7ceee76bc06351baa3cac0fea5c4ac56be2286d3f2e152db788cc",
+        "validation": {
+          "valid": true,
+          "archive_files_count": 1,
+          "files": [
+            "doc.kml"
+          ]
+        }
+      },
+      {
+        "filename": "district_nwic_geojson.zip",
+        "format": "GEOJSON",
+        "size_bytes": 71238839,
+        "status": "EXISTS_VALID",
+        "sha256": "44c734cc72139f2447dcebfe2791cac862dc5ba265e158912d797cf3410d5c37",
+        "validation": {
+          "valid": true,
+          "archive_files_count": 1,
+          "files": [
+            "district_nwic.GeoJSON"
+          ]
+        }
+      },
+      {
+        "filename": "district_nwic_shp.zip",
+        "format": "SHP",
+        "size_bytes": 38609393,
+        "status": "EXISTS_VALID",
+        "sha256": "0c8253fed246a2823c6b08cef25bb40a1cd388334a425f18826f0d598879c526",
+        "validation": {
+          "valid": true,
+          "archive_files_count": 4,
+          "files": [
+            "district_nwic.dbf",
+            "district_nwic.prj",
+            "district_nwic.shp",
+            "district_nwic.shx"
+          ]
+        }
+      }
+    ]
+  },
+  "geoboundaries_district_boundaries": {
+    "dataset_id": "geoboundaries_district_boundaries",
+    "dataset_name": "geoBoundaries India ADM2 District Boundaries (Supplementary)",
+    "hazard_category": "geography",
+    "source_agency": "geoBoundaries / William & Mary",
+    "source_url": "https://www.geoboundaries.org/",
+    "data_classification": "Static Geographic Reference",
+    "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "files_count": 1,
+    "total_bytes": 48317735,
+    "files": [
+      {
+        "filename": "geoBoundaries_IND_ADM2.geojson",
+        "format": "GEOJSON",
+        "size_bytes": 48317735,
+        "status": "EXISTS_VALID",
+        "sha256": "8bef6929fd65432e7dc775e7c44473e84efff064ebddbfd6b834e6291546db40",
+        "validation": {
+          "valid": true,
+          "feature_count": 735,
+          "geometry_types": [
+            "MultiPolygon",
+            "Polygon"
+          ],
+          "sample_bounding_box": null,
+          "crs": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+      }
+    ]
+  },
+  "osm_punjab_emergency_facilities": {
+    "dataset_id": "osm_punjab_emergency_facilities",
+    "dataset_name": "OpenStreetMap Punjab Emergency Facilities",
+    "hazard_category": "facilities",
+    "source_agency": "OpenStreetMap Contributors",
+    "source_url": "https://www.openstreetmap.org/",
+    "data_classification": "Static Geographic Reference",
+    "license": "Open Database License 1.0 (ODbL)",
+    "files_count": 1,
+    "total_bytes": 4002229,
+    "files": [
+      {
+        "filename": "osm_punjab_emergency_facilities.geojson",
+        "format": "GEOJSON",
+        "size_bytes": 4002229,
+        "status": "EXISTS_VALID",
+        "sha256": "0c7b549177a150e07aa4fc31a98d82ab7243908c1238ec6e0f9ec571294ceed6",
+        "validation": {
+          "valid": true,
+          "feature_count": 4337,
+          "geometry_types": [
+            "Point"
+          ],
+          "sample_bounding_box": [
+            29.691085,
+            74.0227793,
+            32.29187,
+            76.8824665
+          ],
+          "crs": "EPSG:4326"
+        }
+      }
+    ]
+  }
+}

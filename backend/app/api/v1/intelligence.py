@@ -10,6 +10,8 @@ from app.models.geography import District
 from app.models.report import CitizenReport, ReportStatus
 from app.intelligence.flood_risk import FloodRiskEngine
 from app.intelligence.landslide_risk import LandslideRiskEngine
+from app.intelligence.flood_ml_service import flood_ml_service
+from app.intelligence.landslide_ml_service import landslide_ml_service
 from app.intelligence.feature_extraction import FeatureExtractor
 from app.intelligence.duplicate_detection import duplicate_detector
 from app.intelligence.report_confidence import ReportConfidenceScorer
@@ -43,10 +45,14 @@ async def get_indicative_flood_risk(
     rainfall_24h_mm: Optional[float] = Query(None, ge=0),
     water_level_m: Optional[float] = Query(None, ge=0),
     danger_mark_m: Optional[float] = Query(None, ge=0),
+    engine: str = Query("rules", description="Inference engine: 'rules' (deterministic IMD/CWC) or 'ml' (trained pipeline)"),
     db: AsyncSession = Depends(get_db),
 ):
     """
-    Computes deterministic, structured indicative flood risk assessment based on IMD & CWC criteria.
+    Computes structured indicative flood risk assessment.
+    Supports:
+    - engine='ml': Trained HistGradientBoosting / Random Forest ML Pipeline (predicts 72h onset probability)
+    - engine='rules': IMD & CWC deterministic sensor rule thresholds
     Output is strictly labeled: 'Indicative risk — not an official warning.'
     """
     observations: Dict[str, Any] = {}
@@ -80,7 +86,10 @@ async def get_indicative_flood_risk(
             if obs.hazard_type not in observations:
                 observations[obs.hazard_type] = {"values": obs.values}
 
-    return FloodRiskEngine.calculate_risk(observations=observations, district_id=district_id)
+    if engine == "rules":
+        return FloodRiskEngine.calculate_risk(observations=observations, district_id=district_id)
+    else:
+        return flood_ml_service.predict(district_id=district_id, observations=observations)
 
 
 @router.get("/risk/landslide")
@@ -89,10 +98,14 @@ async def get_indicative_landslide_risk(
     rainfall_72h_mm: Optional[float] = Query(None, ge=0),
     rainfall_24h_mm: Optional[float] = Query(None, ge=0),
     avg_slope_deg: Optional[float] = Query(None, ge=0, le=90),
+    engine: str = Query("rules", description="Inference engine: 'rules' (deterministic GSI) or 'ml' (Random Forest + GSI criteria)"),
     db: AsyncSession = Depends(get_db),
 ):
     """
-    Computes deterministic, structured indicative landslide risk assessment based on GSI terrain criteria.
+    Computes structured indicative landslide risk assessment.
+    Supports:
+    - engine='ml': Calibrated Random Forest susceptibility coupled with dynamic GSI rainfall triggering
+    - engine='rules': Purely deterministic rule thresholds
     Output is strictly labeled: 'Indicative risk — not an official warning.'
     """
     observations: Dict[str, Any] = {}
@@ -116,7 +129,14 @@ async def get_indicative_landslide_risk(
             if obs.hazard_type not in observations:
                 observations[obs.hazard_type] = {"values": obs.values}
 
-    return LandslideRiskEngine.calculate_risk(observations=observations, district_id=district_id)
+    if engine == "rules":
+        return LandslideRiskEngine.calculate_risk(observations=observations, district_id=district_id)
+    else:
+        return landslide_ml_service.predict(
+            district_id=district_id,
+            slope_deg=avg_slope_deg,
+            observations=observations
+        )
 
 
 @router.get("/risk/district/{district_id}")
@@ -150,14 +170,18 @@ async def get_district_multi_hazard_risk(
     landslide_eval = LandslideRiskEngine.calculate_risk(observations, district_id=district_id)
     features = FeatureExtractor.extract_environmental_features(observations, district_id=district_id)
 
+    # Production Trained ML Models (Model 1: Flood 72h onset, Model 2: Landslide Susceptibility + GSI Trigger)
+    ml_flood = flood_ml_service.predict(district_id=district_id, district_name=district.name, observations=observations)
+    ml_landslide = landslide_ml_service.predict(district_id=district_id, district_name=district.name, observations=observations)
+
     # ML comparative prediction
     ml_eval = ml_baseline.predict_risk(features)
 
     # Highest indicative severity
-    sev_ranks = {"LOW": 1, "MEDIUM": 2, "HIGH": 3, "CRITICAL": 4}
-    f_rank = sev_ranks.get(flood_eval["riskLevel"], 1)
-    l_rank = sev_ranks.get(landslide_eval["riskLevel"], 1)
-    composite_level = flood_eval["riskLevel"] if f_rank >= l_rank else landslide_eval["riskLevel"]
+    sev_ranks = {"LOW": 1, "MEDIUM": 2, "MODERATE": 2, "HIGH": 3, "CRITICAL": 4}
+    f_rank = sev_ranks.get(flood_eval.get("riskLevel", "LOW"), 1)
+    l_rank = sev_ranks.get(landslide_eval.get("riskLevel", "LOW"), 1)
+    composite_level = flood_eval.get("riskLevel", "LOW") if f_rank >= l_rank else landslide_eval.get("riskLevel", "LOW")
 
     return {
         "district": {
@@ -171,6 +195,10 @@ async def get_district_multi_hazard_risk(
         "hazards": {
             "flood": flood_eval,
             "landslide": landslide_eval,
+        },
+        "ml_predictions": {
+            "flood": ml_flood,
+            "landslide": ml_landslide,
         },
         "ml_comparative_baseline": ml_eval,
         "environmental_features": features,

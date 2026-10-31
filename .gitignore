@@ -50,3 +50,7 @@ out/
 # Media and Uploads
 backend/data/uploads/*
 !backend/data/uploads/.gitkeep
+
+# Large Raw Datasets (Re-acquirable via scripts/data_acquisition/download_all.py; avoids GitHub 100MB limit)
+data/raw/
+

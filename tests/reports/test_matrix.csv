@@ -1,0 +1,50 @@
+Test_ID,Category,Requirement_Description,Verification_Method,Automated_Test_Function,Acceptance_Threshold,Result
+DATA-01,01 Data Quality,Open all downloaded CSVs without parsing error,Pandas CSV Parser,test_data_01_open_every_downloaded_csv,Valid row count > 0,PASSED
+DATA-02,01 Data Quality,Validate IMD NetCDF dimensions and variables,xarray open_dataset,test_data_02_netcdf_rainfall_integrity,RAINFALL/TIME/LAT present,PASSED
+DATA-03,01 Data Quality,Quantify and bound missing values across datasets,DataFrame isna check,test_data_03_missing_values_quantification,Missing rate < 5%,PASSED
+DATA-04,01 Data Quality,Verify zero exact duplicate key records,Duplicate subset verification,test_data_04_duplicate_records_verification,0 duplicate primary keys,PASSED
+DATA-05,01 Data Quality,Physical coordinate bounds validation (India envelope),Latitude/Longitude bounds,test_data_05_coordinate_bounds,6-38N and 68-98E,PASSED
+DATA-06,01 Data Quality,Administrative boundary LGD code integrity,GeoJSON feature parser,test_data_06_district_identifiers_and_lgd,> 650 districts with LGD,PASSED
+DATA-07,01 Data Quality,Standardized ISO timestamp and date parsing,datetime conversion,test_data_07_date_fields_consistency,Valid ISO date ranges,PASSED
+DATA-08,01 Data Quality,Rainfall values non-negative and physically bounded,Numerical bounds check,test_data_08_rainfall_values_non_negative,0.0 to 600.0 mm/day,PASSED
+DATA-09,01 Data Quality,Measurement unit consistency across hydrological streams,Hydrological capacity check,test_data_09_measurement_units_consistency,Discharge non-negative,PASSED
+DATA-10,01 Data Quality,Dataset provenance manifest and licensing metadata,JSON manifest validation,test_data_10_source_provenance_metadata,All mandatory manifest keys,PASSED
+DATA-11,01 Data Quality,Historical baseline temporal coverage verification,Parquet time range check,test_data_11_historical_temporal_coverage,2015 to 2023 coverage,PASSED
+DATA-12,01 Data Quality,Demo vs live provenance labeling and status,Vocabulary check,test_data_12_demo_vs_live_labels,Sanctioned status set,PASSED
+ING-01,02 Ingestion,Weather demo adapter fetches valid observation payload,Adapter execution,test_ing_01_fetch_valid_adapter_data,status == success,PASSED
+ING-02,02 Ingestion,Earthquake live adapter safely handles empty payload,Normalization with empty,test_ing_02_handle_empty_data,Returns empty list [],PASSED
+ING-03,02 Ingestion,Validator drops out-of-bounds malformed coordinates,Record validation check,test_ing_03_malformed_record_rejection,Valid records == 0,PASSED
+ING-09,02 Ingestion,Controlled deduplication on incoming observation stream,Composite key set,test_ing_09_duplicate_ingestion_control,Unique keys == record count,PASSED
+ING-11,02 Ingestion,Source staleness detector flags unrefreshed streams,Freshness threshold check,test_ing_11_stale_source_detection,36h flagged stale (>24h),PASSED
+ING-12,02 Ingestion,Demo and Live adapters adhere to identical contract,Key comparison,test_ing_12_and_13_demo_live_contract_invariance,Identical schema contract,PASSED
+ING-14,02 Ingestion,Adapter fault isolation prevents cascade failures,Multi-source execution,test_ing_14_isolated_source_fault_tolerance,All active sources survive,PASSED
+GIS-01,05 Geospatial,Ground-truth coordinate resolution accuracy,Shapely Point-in-Polygon,test_gis_01_and_02_district_resolution_accuracy,Accuracy >= 95% (100% achieved),PASSED
+GIS-05,05 Geospatial,Reject invalid lat/lon outside physical range,FastAPI validation,test_gis_05_and_06_invalid_coordinates_rejected,HTTP 422 Unprocessable,PASSED
+GIS-09,05 Geospatial,Alert geo-targeting isolation and zero leakage,District area join,test_gis_alert_geotargeting_precision_and_recall,0% leakage to other districts,PASSED
+ML-F01,08 ML Models,Flood model metadata validation and horizon check,JSON metadata inspector,test_ml_f01_to_f12_flood_model_metadata_and_leakage,72h horizon / >=15 features,PASSED
+ML-F05,08 ML Models,Chronological train/val/test temporal partition,Temporal split inspector,test_ml_f01_to_f12_flood_model_metadata_and_leakage,2015-21 train / 2023 test,PASSED
+ML-F18,08 ML Models,Flood model discrimination on unseen held-out test year,Champion evaluation,test_ml_f01_to_f12_flood_model_metadata_and_leakage,ROC-AUC >= 0.70 (0.705 achieved),PASSED
+ML-F19,08 ML Models,Flood model precision-recall lift over base rate,Champion evaluation,test_ml_f01_to_f12_flood_model_metadata_and_leakage,PR-AUC > 0.015 (>3.3x baseline),PASSED
+ML-F20,08 ML Models,Live inference probability responds to heavy rain,Pipeline predict,test_ml_flood_inference_scenarios,High rain prob > Dry rain prob,PASSED
+ML-L01,08 ML Models,Landslide terrain slope discrimination,RandomForest predict,test_ml_landslide_gsi_rainfall_triggers,Slope > 30 deg prob > 0.70,PASSED
+ML-L06,08 ML Models,GSI antecedent rainfall trigger coupling,Dual-signal evaluation,test_ml_landslide_gsi_rainfall_triggers,Critical pore pressure trigger,PASSED
+DUP-01,08 ML Models,Synthetic duplicate report grouping accuracy,Haversine + TF-IDF sim,test_dup_01_to_10_duplicate_grouping_accuracy,Accuracy >= 90% (100% achieved),PASSED
+CONF-01,08 ML Models,Synthetic false report low-confidence flagging,Multi-signal Bayesian,test_conf_01_to_10_false_report_low_confidence_flagging,Flagged Low >= 80% (100% achieved),PASSED
+PERF-01,10 Performance,Location-based overview response time distribution,HTTP latency benchmarking,test_perf_01_overview_response_time,Avg & P95 < 3000ms (~35ms achieved),PASSED
+PERF-02,10 Performance,Report submission to queue visibility latency,HTTP latency benchmarking,test_perf_02_report_submission_latency,Avg < 5000ms (~38ms achieved),PASSED
+PERF-05,10 Performance,Real-time ML inference execution speed,Inference benchmarking,test_perf_05_ml_inference_speed,Avg < 200ms (~30ms achieved),PASSED
+PERF-06,10 Performance,PostGIS/Shapely point-in-polygon resolution speed,Spatial query timing,test_perf_06_district_coordinate_resolution_speed,Avg < 100ms (~12ms achieved),PASSED
+AUTH-01,04 RBAC,Citizen role forbidden from officer verification queue,OAuth2 RBAC guard,test_auth_01_citizen_forbidden_from_verification,HTTP 403 Forbidden,PASSED
+AUTH-02,04 RBAC,District officer restricted strictly to assigned district,Jurisdiction guard,test_auth_02_district_officer_cross_district_restriction,HTTP 403 Forbidden,PASSED
+AUTH-04,04 RBAC,Citizen cannot self-escalate role during registration,Role assignment guard,test_auth_04_prevent_role_escalation,Role forced to CITIZEN,PASSED
+AUTH-07,04 RBAC,Expired JWT tokens rejected upon presentation,JWT decode verification,test_auth_07_expired_token_rejected,HTTP 401 Unauthorized,PASSED
+SEC-01,11 Security,SQL injection parameterization defense,SQLAlchemy query builder,test_sec_01_sql_injection_immunity,HTTP 422 Unprocessable,PASSED
+SEC-02,11 Security,Cross-Site Scripting (XSS) input neutralization,Payload sanitization,test_sec_02_xss_mitigation,Preserved as inert string,PASSED
+SEC-06,11 Security,Passwords or hashes never serialized into API responses,Schema serialization,test_sec_06_password_never_exposed_in_api,password fields absent,PASSED
+SEC-12,11 Security,Zero unverified reports displayed on public map,Public map status filter,test_sec_12_zero_unverified_reports_on_public_map,0 unverified reports on public map,PASSED
+E2E-01,12 E2E Scenarios,Scenario 1: Heavy rain to flood verification lifecycle,Full API chain,test_scenario_01_heavy_rain_flood_lifecycle,Report verified & on public map,PASSED
+E2E-02,12 E2E Scenarios,Scenario 2: Landslide susceptibility & rainfall coupling,Full API chain,test_scenario_02_landslide_event,High saturation risk computed,PASSED
+E2E-03,12 E2E Scenarios,Scenario 3: Corroborating duplicate reports clustering,Clustering endpoint,test_scenario_03_duplicate_incident_grouping,Clustered for officer review,PASSED
+E2E-04,12 E2E Scenarios,Scenario 4: Bilingual earthquake safety guidance (EN & HI),Awareness endpoint,test_scenario_04_earthquake_observations_and_safety,English & Hindi guidance valid,PASSED
+E2E-05,12 E2E Scenarios,Scenario 5: Forest fire awareness guidance in EN & HI,Awareness endpoint,test_scenario_05_forest_fire_safety_and_detection,Fire guides present in both langs,PASSED
+E2E-06,12 E2E Scenarios,Scenario 6: Data source health, telemetry & outage tolerance,Integrations endpoint,test_scenario_06_source_health_and_stale_tolerance,Active sources reported healthy,PASSED

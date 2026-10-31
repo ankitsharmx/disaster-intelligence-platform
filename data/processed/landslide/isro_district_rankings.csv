@@ -1,0 +1,147 @@
+isro_rank,district,state,isro_exposure_score
+1,Rudraprayag,Uttaranchal,0.9932
+2,Tehri,Garhwal Uttaranchal,0.9864
+3,Thrissur,Kerala,0.9796
+4,Rajauri,J&K,0.9728
+5,Palakkad,Kerala,0.966
+6,Poonch,J&K,0.9592
+7,Malappuram,Kerala,0.9524
+8,South,District Sikkim,0.9456
+9,East,District Sikkim,0.9388
+10,Kozhikode,Kerala,0.932
+11,Imphal,West Manipur,0.9252
+12,Kodagu,Karnataka,0.9184
+13,Wayanad,Kerala,0.9116
+14,Jammu,J&K,0.9048
+15,Ernakulam,Kerala,0.898
+16,Mandi,Himachal Pradesh,0.8912
+17,Udhampur,J&K,0.8844
+18,Idukki,Kerala,0.8776
+19,Chamoli,Uttaranchal,0.8707
+20,West,District Sikkim,0.8639
+21,Uttarkashi,Uttaranchal,0.8571
+22,Cachar,Assam,0.8503
+23,Garhwal,Uttaranchal,0.8435
+24,Kottayam,Kerala,0.8367
+25,Hamirpur,Himachal Pradesh,0.8299
+26,Kannur,Kerala,0.8231
+27,Pulwama,J&K,0.8163
+28,Thiruvananthapuram,Kerala,0.8095
+29,Dehra,Dun Uttaranchal,0.8027
+30,Bilaspur,Himachal Pradesh,0.7959
+31,West,Garo Hills Meghalaya,0.7891
+32,Chamba,Himachal Pradesh,0.7823
+33,Pathanamthitta,Kerala,0.7755
+34,East,Khasi Hills Meghalaya,0.7687
+35,Darjiling,West Bengal,0.7619
+36,Coimbatore,Tamil Nadu,0.7551
+37,Solan,Himachal Pradesh,0.7483
+38,Aizawl,Mizoram,0.7415
+39,Lunglei,Mizoram,0.7347
+40,Kamrup,Assam,0.7279
+41,Dindigul,Tamil Nadu,0.7211
+42,Kathua,J&K,0.7143
+43,Kanniyakumari,Tamil Nadu,0.7075
+44,Kasaragod,Kerala,0.7007
+45,Lawngtlai,Mizoram,0.6939
+46,Kinnaur,Himachal Pradesh,0.6871
+47,Hailakandi,Assam,0.6803
+48,Kollam,Kerala,0.6735
+49,Goalpara,Assam,0.6667
+50,Bageshwar,Uttaranchal,0.6599
+51,North,District Sikkim,0.6531
+52,Anantanag,J&K,0.6463
+53,Hassan,Karnataka,0.6395
+54,Dakshina,Kannada Karnataka,0.6327
+55,Karbi,Anglong Assam,0.6259
+56,Lohit,Arunachal Pradesh,0.619
+57,Kullu,Himachal Pradesh,0.6122
+58,Baramulla,J&K,0.6054
+59,Theni,Tamil Nadu,0.5986
+60,Kolasib,Mizoram,0.5918
+61,Shimla,Himachal Pradesh,0.585
+62,Kangra,Himachal Pradesh,0.5782
+63,Churachandpur,Manipur,0.5714
+64,East,Garo Hills Meghalaya,0.5646
+65,Champawat,Uttaranchal,0.5578
+66,West,Khasi Hills Meghalaya,0.551
+67,Ribhoi,Meghalaya,0.5442
+68,Naini,Tal Uttaranchal,0.5374
+69,Jaintia,Hills Meghalaya,0.5306
+70,Una,Himachal Pradesh,0.5238
+71,Mamit,Mizoram,0.517
+72,Tirunelveli,Tamil Nadu,0.5102
+73,Papum,Pare Arunachal Pradesh,0.5034
+74,Tawang,Arunachal Pradesh,0.4966
+75,West,Tripura Tripura,0.4898
+76,North,Tripura Tripura,0.483
+77,Udupi,Karnataka,0.4762
+78,East,Siang Arunachal Pradesh,0.4694
+79,Doda,J&K,0.4626
+80,Thane,Maharashtra,0.4558
+81,Almora,Uttaranchal,0.449
+82,Serchhip,Mizoram,0.4422
+83,North,Cachar Hills Assam,0.4354
+84,Lower,Subansiri Arunachal Pradesh,0.4286
+85,The,Nilgiris Tamil Nadu,0.4218
+86,Pithoragarh,Uttaranchal,0.415
+87,West,Kameng Arunachal Pradesh,0.4082
+88,Sirmaur,Himachal Pradesh,0.4014
+89,Phek,Nagaland,0.3946
+90,South,Garo Hills Meghalaya,0.3878
+91,Changlang,Arunachal Pradesh,0.381
+92,Chikmagalur,Karnataka,0.3741
+93,Mon,Nagaland,0.3673
+94,Tuensang,Nagaland,0.3605
+95,Bongaigaon,Assam,0.3537
+96,Lower,Dibang Valley Arunachal Pradesh,0.3469
+97,Senapati,Manipur,0.3401
+98,Srinagar,J&k,0.3333
+99,Morigaon,Assam,0.3265
+100,Tamenglong,Manipur,0.3197
+101,East,Kameng Arunachal Pradesh,0.3129
+102,Saiha,Mizoram,0.3061
+103,Shimoga,Karnataka,0.2993
+104,Upper,Siang Arunachal Pradesh,0.2925
+105,Mokokchung,Nagaland,0.2857
+106,Kohima,Nagaland,0.2789
+107,Pune,Maharashtra,0.2721
+108,West,Siang Arunachal Pradesh,0.2653
+109,Raygarh,Maharashtra,0.2585
+110,Dhalai,Tripura,0.2517
+111,North,Goa Goa,0.2449
+112,Ukhrul,Manipur,0.2381
+113,Kurung,Kumey Arunachal Pradesh,0.2313
+114,Sindhudurg,Maharashtra,0.2245
+115,Tirap,Arunachal Pradesh,0.2177
+116,Uttara,Kannada Karnatka,0.2109
+117,Nagaon,Assam,0.2041
+118,Champhai,Mizoram,0.1973
+119,Budgam,J&K,0.1905
+120,Upper,Subansiri Arunachal Pradesh,0.1837
+121,South,Goa Goa,0.1769
+122,Chandel,Manipur,0.1701
+123,Kargil,J&K,0.1633
+124,Haveri,Karnataka,0.1565
+125,Anjaw,Arunachal Pradesh,0.1497
+126,Lahul,& Spiti Himachal Pradesh,0.1429
+127,Dhubri,Assam,0.1361
+128,Nashik,Maharashtra,0.1293
+129,Ratnagiri,Maharashtra,0.1224
+130,South,Tripura Tripura,0.1156
+131,Ahmadnagar,Maharashtra,0.1088
+132,Kupwara,J&k,0.102
+133,Kolhapur,Maharashtra,0.0952
+134,Satara,Maharashtra,0.0884
+135,Dibang,Valley Arunachal Pradesh,0.0816
+137,Karimganj,Assam,0.068
+138,Alappuzha,Kerala,0.0612
+139,Mumbai,Suburban Maharashtra,0.0544
+140,Mumbai,Maharashtra,0.0476
+141,Thoubal,Manipur,0.0408
+142,Imphal,East Manipur,0.034
+143,Bishnupur,Manipur,0.0272
+144,Zunheboto,Nagaland,0.0204
+145,Wokha,Nagaland,0.0136
+146,Haridwar,Uttaranchal,0.0068
+147,Udham,Singh Nagar Uttaranchal,0.0

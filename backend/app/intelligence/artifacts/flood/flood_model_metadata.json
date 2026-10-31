@@ -1,0 +1,178 @@
+{
+  "model_name": "indicative_flood_risk_predictor",
+  "model_version": "v1.0.0",
+  "algorithm": "Hist_Gradient_Boosting",
+  "prediction_horizon_hours": 72,
+  "target": "flood_next_72h",
+  "trained_date": "2026-10-30 06:04:52.121339+00:00",
+  "training_years": "2015-2021",
+  "validation_year": "2022",
+  "test_year": "2023",
+  "metrics_summary": {
+    "Logistic_Regression": {
+      "calibrated_threshold": 0.4,
+      "accuracy": 0.840246704559197,
+      "precision": 0.0015735641227380016,
+      "recall": 0.037037037037037035,
+      "f1_score": 0.0030188679245283017,
+      "roc_auc": 0.5892833795450959,
+      "pr_auc": 0.00744124004254507,
+      "brier_score": 0.10317292801725386
+    },
+    "Random_Forest": {
+      "calibrated_threshold": 0.025322569584626448,
+      "accuracy": 0.9470310799371146,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "roc_auc": 0.4857791754018169,
+      "pr_auc": 0.0060873711090290465,
+      "brier_score": 0.007163214243652238
+    },
+    "Hist_Gradient_Boosting": {
+      "calibrated_threshold": 0.02,
+      "accuracy": 0.9683153948482284,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "roc_auc": 0.7050900565812313,
+      "pr_auc": 0.021903549591130365,
+      "brier_score": 0.008771263815936323
+    }
+  },
+  "champion_metrics": {
+    "calibrated_threshold": 0.02,
+    "accuracy": 0.9683153948482284,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "roc_auc": 0.7050900565812313,
+    "pr_auc": 0.021903549591130365,
+    "brier_score": 0.008771263815936323
+  },
+  "feature_columns": [
+    "rain_1d",
+    "rain_3d",
+    "rain_7d",
+    "rain_14d",
+    "rain_30d",
+    "rain_max_3d",
+    "rain_max_7d",
+    "rain_anomaly",
+    "temp_mean",
+    "temp_max",
+    "humidity_mean",
+    "wind_max",
+    "month",
+    "day_of_year",
+    "is_monsoon",
+    "discharge_mean",
+    "discharge_max",
+    "discharge_change_24h",
+    "rwl_change_24h",
+    "dfsi_score"
+  ],
+  "feature_ranking": [
+    {
+      "feature": "day_of_year",
+      "importance": 0.2777187839196701
+    },
+    {
+      "feature": "month",
+      "importance": 0.14113144788586968
+    },
+    {
+      "feature": "temp_max",
+      "importance": 0.09316974508650026
+    },
+    {
+      "feature": "temp_mean",
+      "importance": 0.08911093274668887
+    },
+    {
+      "feature": "rain_anomaly",
+      "importance": 0.06800226705312293
+    },
+    {
+      "feature": "humidity_mean",
+      "importance": 0.05373205714220867
+    },
+    {
+      "feature": "rain_30d",
+      "importance": 0.04870750662578496
+    },
+    {
+      "feature": "rain_14d",
+      "importance": 0.044824996134862495
+    },
+    {
+      "feature": "rain_max_3d",
+      "importance": 0.03346873338038303
+    },
+    {
+      "feature": "rain_7d",
+      "importance": 0.03213652249046851
+    },
+    {
+      "feature": "rain_3d",
+      "importance": 0.025352793613910643
+    },
+    {
+      "feature": "is_monsoon",
+      "importance": 0.022876091614288566
+    },
+    {
+      "feature": "wind_max",
+      "importance": 0.02270927454854605
+    },
+    {
+      "feature": "rain_max_7d",
+      "importance": 0.021248343413036726
+    },
+    {
+      "feature": "rain_1d",
+      "importance": 0.01794829111281524
+    },
+    {
+      "feature": "dfsi_score",
+      "importance": 0.0078622132318432
+    },
+    {
+      "feature": "discharge_mean",
+      "importance": 0.0
+    },
+    {
+      "feature": "discharge_max",
+      "importance": 0.0
+    },
+    {
+      "feature": "discharge_change_24h",
+      "importance": 0.0
+    },
+    {
+      "feature": "rwl_change_24h",
+      "importance": 0.0
+    }
+  ],
+  "risk_thresholds": {
+    "LOW": [
+      0.0,
+      0.25
+    ],
+    "MODERATE": [
+      0.25,
+      0.6
+    ],
+    "HIGH": [
+      0.6,
+      1.0
+    ]
+  },
+  "data_provenance": {
+    "weather": "Open-Meteo ERA5 Reanalysis (2015-2024)",
+    "river": "Punjab Water Resources Department Hourly Telemetry (Discharge & RWL)",
+    "flood_inventory": "IIT Delhi India Flood Inventory (Zenodo v4)",
+    "vulnerability": "DFSI (District Flood Severity Index)"
+  },
+  "disclaimer": "Indicative statistical probability calculated for early warning review. Not an official government flood declaration."
+}

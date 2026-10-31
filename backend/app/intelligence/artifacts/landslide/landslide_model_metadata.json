@@ -1,0 +1,116 @@
+{
+  "model_name": "landslide_susceptibility_predictor",
+  "model_version": "v1.0.0",
+  "algorithm": "Random_Forest",
+  "target": "landslide_susceptibility_probability",
+  "trained_date": "2026-10-30 06:10:54.107085+00:00",
+  "train_samples": 2024,
+  "test_samples": 506,
+  "metrics_summary": {
+    "Logistic_Regression": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 0.9999999999999999,
+      "brier_score": 5.813623625087233e-06
+    },
+    "Random_Forest": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "brier_score": 1.7238041461644253e-07
+    }
+  },
+  "champion_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier_score": 1.7238041461644253e-07
+  },
+  "feature_columns": [
+    "elevation_m",
+    "slope_deg",
+    "terrain_relief_m",
+    "is_mountainous",
+    "physiographic_zone"
+  ],
+  "feature_ranking": [
+    {
+      "feature": "terrain_relief_m",
+      "importance": 0.3158430149930313
+    },
+    {
+      "feature": "is_mountainous",
+      "importance": 0.2578574494928842
+    },
+    {
+      "feature": "slope_deg",
+      "importance": 0.24906201863336824
+    },
+    {
+      "feature": "elevation_m",
+      "importance": 0.10175195355419141
+    },
+    {
+      "feature": "physiographic_zone_Himalayan_Arc",
+      "importance": 0.038779197538273455
+    },
+    {
+      "feature": "physiographic_zone_Other_Hilly",
+      "importance": 0.021519080621322045
+    },
+    {
+      "feature": "physiographic_zone_Punjab_Haryana_Plains",
+      "importance": 0.005854723508034896
+    },
+    {
+      "feature": "physiographic_zone_Gangetic_Alluvial",
+      "importance": 0.003575243538682268
+    },
+    {
+      "feature": "physiographic_zone_Deccan_Flat",
+      "importance": 0.0029387442320715856
+    },
+    {
+      "feature": "physiographic_zone_Coastal_Plain",
+      "importance": 0.0014413135988352618
+    },
+    {
+      "feature": "physiographic_zone_Western_Ghats",
+      "importance": 0.0013772602893054498
+    }
+  ],
+  "gsi_rainfall_thresholds": {
+    "critical_72h_mm": 250.0,
+    "high_72h_mm": 150.0,
+    "medium_72h_mm": 75.0,
+    "intense_24h_mm": 100.0
+  },
+  "susceptibility_thresholds": {
+    "LOW": [
+      0.0,
+      0.3
+    ],
+    "MODERATE": [
+      0.3,
+      0.65
+    ],
+    "HIGH": [
+      0.65,
+      1.0
+    ]
+  },
+  "data_provenance": {
+    "inventory": "NASA Global Landslide Catalog (GLC) & ISRO Landslide Atlas 2023",
+    "terrain_criteria": "Geological Survey of India (GSI) National Landslide Susceptibility Mapping (NLSM)"
+  },
+  "disclaimer": "Indicative susceptibility and dynamic risk calculated for early warning review. Not an official GSI declaration."
+}
